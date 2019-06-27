@@ -1,6 +1,6 @@
 # Запросы
 
-* [Текущее время сервера](docs/time.md)
+* [Текущее время сервера](time.md)
 * [Регистрация](registration.md)
   * [Запрос регистрации](registration.md)
   * [Повторная отправка кода подтверждения](registration.md#resubmit-item)
