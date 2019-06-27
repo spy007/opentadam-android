@@ -3,7 +3,7 @@
 `POST /api/client/mobile/1.1/service`
 
 #### HTTP Заголовки
-* **Content-Type**: application/json; charset=utf-8
+* **Content-Type**: `string` application/json; charset=utf-8
 * [Hive-Profile](http_headers.md)
 * [X-Hive-GPS-Position](http_headers.md)
 
@@ -23,7 +23,7 @@ prevServiceId | string | нет | Идентификатор сервиса из
 ## Ответ
 
 #### HTTP Заголовки
-* **Content-Type**: application/json; charset=utf-8
+* **Content-Type**: `string` application/json; charset=utf-8
 
 #### Тело ответа
 * JSON объект [Service](#Service-fields).
