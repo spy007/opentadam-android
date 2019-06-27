@@ -2,6 +2,8 @@
 
 `GET /api/client/mobile/3.0/address/client`
 
+Запрос требует [Авторизацию](hmac.md)
+
 ## Ответ
 
 * **Content-Type**: application/json; charset=utf-8
