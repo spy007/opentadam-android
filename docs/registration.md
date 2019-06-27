@@ -56,6 +56,7 @@ birthDate |	string OffsetDateTime | нет | Дата рождения
 ## Ответ
 
 #### HTTP Заголовки
+* **Content-Type**: `string` application/json; charset=utf-8
 
 #### Тело ответа
 * JSON оъект [Submitted](#Submitted-fields)
@@ -123,7 +124,7 @@ code | string | да | Код подтверждения
 ## Ответ
 
 #### HTTP Заголовки
-* **Content-Type**: application/json; charset=utf-8
+* **Content-Type**: `string` application/json; charset=utf-8
 
 #### Тело ответа
 * JSON объект [Confirmed](#Confirmed-fields).
