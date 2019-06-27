@@ -2,7 +2,7 @@
 
 `GET /api/client/mobile/1.0/payment-methods`
 
-HTTP Заголовки:
+### HTTP Заголовки:
 * [X-Hive-GPS-Position](http_headers.md)
 
 ## Ответ
