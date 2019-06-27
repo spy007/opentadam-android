@@ -41,3 +41,46 @@ lon | number | да | Долгота
   "lon":73.5566567
 }
 ```
+
+<a name="Address-fields"></a>
+## Address
+
+Имя | Тип | Обязательное | Описание
+--- | --- | --- | ---
+name | string | да | Форматированное наименование
+components | Массив объектов [AddressComponent](#AddressComponent-fields) | нет | Компоненты
+types | Объект [AddressTypes](#AddressTypes-fields) | нет | Идентификатор типа
+position | Объект [GpsPosition](#GpsPosition-fields) | нет | Координаты
+
+<a name="AddressComponent-fields"></a>
+### AddressComponent
+
+Имя | Тип | Обязательное | Описание
+--- | --- | --- | ---
+level | number [AddressLevel](#AddressLevel-enum) | да | Уровень
+name | string | да | Наименование
+
+<a name="AddressTypes-fields"></a>
+### AddressTypes
+
+Имя | Тип | Обязательное | Описание
+--- | --- | --- | ---
+pointType | number | нет | Тип точки
+aliasType | number | нет | Тип алиаса (тип POI)
+
+### Акроним AddressLevel
+
+Акроним | Описание
+--- | ---
+0 | Страна
+1 | Административный уровень 1 (регион)
+2 | Административный уровень 2
+3 | Административный уровень 3
+4 | Административный уровень 4 (город)
+5 | Административный уровень 5
+6 | Административный уровень 6 (населенный пункт)
+7 | Улица
+8 | Дом
+9 | Алиас (POI)
+
+
