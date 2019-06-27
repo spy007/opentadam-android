@@ -2,7 +2,8 @@
 
 `GET /api/client/mobile/3.0/address/client`
 
-Запрос требует [Авторизацию](hmac.md)
+### HTTP Заголовки
+* [Авторизация](hmac.md) обязательный
 
 ## Ответ
 
