@@ -4,6 +4,7 @@
 
 #### HTTP Заголовки
 * **Content-Type**: `string` application/json; charset=utf-8
+* [Hive-Profile](http_headers.md)
 * [X-Hive-GPS-Position](http_headers.md)
 
 #### Тело запроса
