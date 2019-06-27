@@ -5,6 +5,7 @@
 Требуется [Авторизация](hmac.md)
 #### HTTP Заголовки
 * **Content-Type**: `string` application/json; charset=utf-8
+* [Hive-Profile](http_headers.md)
 
 #### Тело запроса
 * JSON объект [FsmInfo](#FsmInfo-fields)
