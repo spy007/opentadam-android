@@ -32,7 +32,7 @@ time | string LocalDateTime | нет | Время заказа (отсутств
 #### Estimations
 Имя | Тип | Обязательное | Описание
 --- | --- | --- | ---
-estimations | массив Estimation | да | Список предварительных оценок стоимости по заказу
+estimations | массив [Estimation](#Estimation-fields) | да | Список предварительных оценок стоимости по заказу
 path | Объект GeoJSON::LineString | нет | Предполагаемый подробный маршрут поездки
 distance | number | нет | Расстояние в метрах
 
