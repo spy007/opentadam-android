@@ -16,7 +16,7 @@
 --- | --- | --- | ---
 token | string | да | FCM ключ
 
-### Ответ
+## Ответ
 
 #### HTTP Заголовки
 * **Content-Type**: `string` application/json; charset=utf-8
