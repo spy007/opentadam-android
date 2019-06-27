@@ -3,8 +3,11 @@
 `POST /api/client/mobile/1.0/registration/fcm`
 
 Требуется [Авторизация](hmac.md)
+#### HTTP Заголовки
 * **Content-Type**: application/json; charset=utf-8
-* **Body**: JSON объект [FsmInfo](#FsmInfo-fields)
+
+#### Тело запроса
+* JSON объект [FsmInfo](#FsmInfo-fields)
 
 <a name="FsmInfo-fields"></a>
 ### Объект FsmInfo
@@ -15,5 +18,8 @@ token | string | да | FCM ключ
 
 ### Ответ
 
+#### HTTP Заголовки
 * **Content-Type**: application/json; charset=utf-8
-* **Body**: Пустой объект.
+
+#### Тело ответа
+Пустой объект.
