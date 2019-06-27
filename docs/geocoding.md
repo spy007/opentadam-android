@@ -16,7 +16,7 @@ query | string | да | Строка поиска
  ## Ответ
  
 #### HTTP Заголовки
-* **Content-Type**:	application/json; charset=utf-8
+* **Content-Type**:	`strings` application/json; charset=utf-8
 
 #### Тело ответа
 * массив объектов [Address](objects.md#address-fields)
