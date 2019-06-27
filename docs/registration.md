@@ -9,9 +9,9 @@
 
 `POST /api/client/mobile/1.0/registration/submit`
 
-### Заголовки
-
-Hive-Profile, X-Hive-GPS-Position
+#### Заголовки
+* [Hive-Profile](http_headers.md)
+* [X-Hive-GPS-Position](http_headers.md)
 
 ### Тело запроса
 
@@ -82,6 +82,9 @@ id | number | да | Временный идентификатор клиент�
 
 `GET /api/client/mobile/1.0/registration/resubmit`
 
+#### Заголовки
+* [Hive-Profile](http_headers.md)
+
 ### Параметры запроса
 Передаются в формате `key=value`
 
@@ -104,6 +107,9 @@ confirmationType | string | нет | Как будет отправлен код
 
 `GET /api/client/mobile/1.0/registration/confirm`
 
+#### Заголовки
+* [Hive-Profile](http_headers.md)
+
 ### Параметры запроса
 Передаются в формате `key=value`
 
@@ -114,8 +120,8 @@ code | string | да | Код подтверждения
 
 ### Ответ
 
-**Content-Type**: application/json; charset=utf-8
-**Body**: Объект [Confirmed](#Confirmed-fields).
+* **Content-Type**: application/json; charset=utf-8
+* **Body**: Объект [Confirmed](#Confirmed-fields).
 
 <a name="Confirmed-fields"></a>
 #### Объект Confirmed
