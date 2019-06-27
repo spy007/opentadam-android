@@ -10,7 +10,7 @@
 * JSON объект [FsmInfo](#FsmInfo-fields)
 
 <a name="FsmInfo-fields"></a>
-### Объект FsmInfo
+#### Объект FsmInfo
 
 Имя | Тип | Обязательный | Описание
 --- | --- | --- | ---
