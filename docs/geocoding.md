@@ -1,4 +1,4 @@
-# Геокодинг, поиск адреса
+# Геокодинг, поиск адресов
 
 `GET /api/client/mobile/1.0/address/geocoding`
 
