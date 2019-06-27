@@ -8,7 +8,7 @@
 * [X-Hive-GPS-Position](http_headers.md)
 
 #### Тело запроса
-* **Body**: object [Params](#Params-fields).
+* JSON объект [Params](#Params-fields).
 
 <a name="Params-fields"></a>
 ## Params
