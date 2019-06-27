@@ -2,15 +2,15 @@
 
 `GET /api/client/mobile/1.0/time`
 
+#### HTTP Заголовки
+* [Hive-Profile](http_headers.md)
+
 ## Ответ
 Успешный ответ приходит с кодом `200 OK` и содержит:
 
-### Заголовки
-
-| Имя | Тип | Значение |
-| --- | --- | --- |
-| Content-Type | string | application/json; charset=utf-8 |
-| Body | string | Объект [OffsetDateTime](#offset-data-time) |
+#### HTTP Заголовки
+* **Content-Type**: `string` application/json; charset=utf-8
+* **Body**: `string` Объект [OffsetDateTime](#offset-data-time)
 
 
 <a name="offset-data-time"></a>
