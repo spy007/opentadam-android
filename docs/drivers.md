@@ -2,11 +2,15 @@
 
 `POST /api/client/mobile/2.0/drivers`
 
-* **Content-Type**: application/json; charset=utf-8
-* **Body**: object [Params](#params-fields)
+#### HTTP Заголовки
+* **Content-Type**: `string` application/json; charset=utf-8
+* [X-Hive-GPS-Position](http_headers.md)
+
+#### Тело запроса
+* JSON object [Params](#params-fields)
 
 <a name="params-fields"></a>
-### Объект Params
+#### Объект Params
 
 Имя | Тип | Обязательное | Описание
 --- | --- | --- | ---
@@ -15,13 +19,16 @@ tariff | number | да | Идентификатор тарифа
 
 ## Ответ
 
-* **Content-Type**: application/json; charset=utf-8
-* **Body**: array object [Driver](#driver-fields).
+#### HTTP Заголовки
+* **Content-Type**: `string` application/json; charset=utf-8
+
+#### Тело ответа
+* массив объектов [Driver](#driver-fields).
 
 Список будет непустым только при наличии заголовка `X-Hive-GPS-Position` в запросе.
 
 <a name="driver-fields"></a>
-### Объект Driver
+#### Объект Driver
 
 Имя | Тип | Обязательное | Описание
 --- | --- | --- | ---
