@@ -15,8 +15,8 @@ tariff | number | да | Идентификатор тарифа
 
 ## Ответ
 
-**Content-Type**: application/json; charset=utf-8
-**Body**: array object [Driver](#driver-fields).
+* **Content-Type**: application/json; charset=utf-8
+* **Body**: array object [Driver](#driver-fields).
 
 Список будет непустым только при наличии заголовка `X-Hive-GPS-Position` в запросе.
 
