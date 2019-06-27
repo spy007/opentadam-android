@@ -2,11 +2,13 @@
 
 `POST /api/client/mobile/1.1/service`
 
-### HTTP Заголовки
-
+#### HTTP Заголовки
 * **Content-Type**: application/json; charset=utf-8
+* [Hive-Profile](http_headers.md)
+* [X-Hive-GPS-Position](http_headers.md)
+
+#### Тело запроса
 * **Body**: object [Params](#Params-fields).
-* [X-Hive-GPS-Position]()
 
 <a name="Params-fields"></a>
 ## Params
@@ -18,10 +20,13 @@ prevServiceId | string | нет | Идентификатор сервиса из
 
 Важно наличие заголовка `X-Hive-GPS-Position` в запросе для точного определения службы такси, обслуживающей регион клиента.
 
-### Ответ
+## Ответ
 
+#### HTTP Заголовки
 * **Content-Type**: application/json; charset=utf-8
-* **Body**: Объект [Service](#Service-fields).
+
+#### Тело ответа
+* JSON объект [Service](#Service-fields).
 
 <a name="Service-fields"></a>
 #### Service
@@ -63,7 +68,7 @@ showEstimation | boolean | нет | Показывать предрассчет
 
 
 <a name="Option-fields"></a>
-### Объект Option
+#### Объект Option
 
 Имя | Тип | Обязательное | Описание
 --- | --- | --- | ---
@@ -75,7 +80,7 @@ mandatory | boolean | да | Должна ли опция быть включе�
 
 
 <a name="OptionValueType-enum"></a>
-### Акроним OptionValueType
+#### Акроним OptionValueType
 
 Акроним | Описание
 --- | ---
@@ -83,7 +88,7 @@ fixed | Фиксированная стоимость
 percent | Процент от стоимости заказа
 
 <a name="Settings-fields"></a>
-### Объект Settings
+#### Объект Settings
 
 Имя | Тип | Обязательное | Описание
 --- | --- | --- | ---
@@ -97,7 +102,7 @@ averageSpeed | number | да | Средняя скорость
 destinationRequired | boolean | да | Конечный адрес обязателен
 
 <a name="MainInterfaceMode-enum"></a>
-### Акроним MainInterfaceMode
+#### Акроним MainInterfaceMode
 
 Акроним | Описание
 --- | ---
@@ -107,7 +112,7 @@ simple-advanced | Сначала простой
 advanced-simple | Сначала сложный
 
 <a name="MainInterfaceMode-enum"></a>
-### Акроним GeocodingService
+#### Акроним GeocodingService
 
 Акроним | Описание
 --- | ---
@@ -117,7 +122,7 @@ osm | OpenStreetMap
 
 
 <a name="MapSource-enum"></a>
-### Акроним MapSource
+#### Акроним MapSource
 
 Акроним | Описание
 --- | ---
@@ -127,7 +132,7 @@ osm | OpenStreetMap
 
 
 <a name="Currency-fields"></a>
-### Объект Currency
+#### Объект Currency
 
 Имя | Тип | Обязательное | Описание
 --- | --- | --- | ---
@@ -136,7 +141,7 @@ sign | string | да | Символ
 
 
 <a name="DispatcherCall-fields"></a>
-### Объект DispatcherCall
+#### Объект DispatcherCall
 
 Имя | Тип | Обязательное | Описание
 --- | --- | --- | ---
@@ -146,7 +151,7 @@ number | string | нет | Телефон диспетчерской
 
 
 <a name="AllowCall-enum"></a>
-### Акроним AllowCall
+#### Акроним AllowCall
 
 Акроним | Описание
 --- | ---
