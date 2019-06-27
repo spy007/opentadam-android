@@ -8,6 +8,7 @@ OpenTadam Mobile API - это инструментарий для интегра
 <a name="general"></a>
 ## Общая информация
 
-* [Общая информация](docs/general.md) 
+* [Общая информация](docs/general.md)
+* [Запросы](doc/requests.md)
 
 
