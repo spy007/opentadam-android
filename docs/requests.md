@@ -1,8 +1,8 @@
 # Запросы
 
-* [Текущее время сервера](doc/time.md)
-* [Регистрация](doc/registration.md)
-  * [Запрос регистрации](doc/registration.md)
-  * [Повторная отправка кода подтверждения](doc/registration.md#resubmit-item)
-  * [Подтверждение регистрации](doc/registration.md#confirm-item)
+* [Текущее время сервера](docs/time.md)
+* [Регистрация](docs/registration.md)
+  * [Запрос регистрации](docs/registration.md)
+  * [Повторная отправка кода подтверждения](docs/registration.md#resubmit-item)
+  * [Подтверждение регистрации](docs/registration.md#confirm-item)
 * Регистрация ключа для PUSH уведомлений
