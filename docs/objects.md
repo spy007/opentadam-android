@@ -8,6 +8,11 @@
   * [AddressTypes](#AddressTypes-fields)
   * [AddressLevel](#AddressLevel-enum)
 * [OffsetDateTime](#OffsetDateTime-item)
+* [Cost](#Cost-item)
+  * [CostType](#CostType-enum)
+  * [CalculationType](#CalculationType-enum)
+  * [CostModifier](#CostModifier-fields)
+    * [CostModifierType](#CostModifierType-enum)
 
 <a name="PaymentMethod-fields"></a>
 ## PaymentMethod
@@ -139,3 +144,55 @@ Duration | string | Формат: `PnYnMnDTnHnMnS`, Раздел в википе
 
 
 Все форматы соответствуют стандарту [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601).
+
+<a name="Cost-item"></a>
+## Cost
+Имя | Тип | Обязательное | Описание
+--- | --- | --- | ---
+type | string [CostType](#CostType-enum) | да | Тип стоимости
+amount | number | да | Стоимость
+calculation | string [CalculationType](#CalculationType-enum) | да | Тип рассчета
+modifier | объект [CostModifier](#CostModifier-fields) | нет | Модификатор стоимости
+fixed | number | нет | Зафиксированная стоимость
+details | массив объектов [CostItem](#CostItem-fields) | нет | Детали
+
+<a name="CostType-enum"></a>
+### Акроним CostType
+Акроним | Описание
+--- | ---
+total | Фиксированная стоимость
+approximate | Приблизительная стоимость
+minimum | Минимальная стоимость
+
+
+<a name="CalculationType-enum"></a>
+### Акроним CalculationType
+Акроним | Описание
+--- | ---
+fixed | Стоимость в пути не меняется
+taximeter | Стоимость зависит от показаний таксометра
+
+
+<a name="CostModifier-fields"></a>
+### CostModifier
+Имя | Тип | Обязательное | Описание
+--- | --- | --- | ---
+type | string [CostModifierType](#CostModifierType-enum) | да | Тип модификатора
+value | number | да | Значение модификатора
+
+
+<a name="CostModifierType-enum"></a>
+### Акроним CostModifierType
+Акроним | Описание
+--- | ---
+add | Добавление
+multiply | Умножение
+
+
+<a name="CostItem-fields"></a>
+### CostItem
+Имя | Тип | Обязательное | Описание
+--- | --- | --- | ---
+title | string | да | Наименование
+cost | number | да | Стоимость
+
