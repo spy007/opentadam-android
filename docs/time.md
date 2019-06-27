@@ -10,4 +10,6 @@
 
 #### HTTP Заголовки
 * **Content-Type**: `string` application/json; charset=utf-8
-* **Body**: `string` Объект [OffsetDateTime](objects.md#OffsetDateTime-item)
+
+#### Тело ответа
+* JSON объект [OffsetDateTime](objects.md#OffsetDateTime-item)
