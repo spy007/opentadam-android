@@ -3,6 +3,7 @@
 `GET /api/client/mobile/1.0/address/geocoding`
 
 #### HTTP Заголовки
+* [Hive-Profile](http_headers.md)
 * [X-Hive-GPS-Position](http_headers.md)
 
 #### Параметры запроса
