@@ -1,0 +1,39 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="144dp"
+    android:clickable="true"
+    android:focusable="true">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <com.opentadam.view.SubcategoryScrollView
+            android:id="@+id/hscroll"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:isScrollContainer="false"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:id="@+id/cont_sections"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" />
+
+        </com.opentadam.view.SubcategoryScrollView>
+    </ScrollView>
+
+
+    <View
+        android:layout_width="40dp"
+        android:layout_height="144dp"
+        android:background="@drawable/tarif_gradient_linear_left" />
+
+    <View
+        android:layout_width="40dp"
+        android:layout_height="144dp"
+        android:layout_gravity="right"
+        android:background="@drawable/tarif_gradient_linear_r" />
+</FrameLayout>

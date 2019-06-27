@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fglobCont"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fref_yellow_gradient"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/icBack"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:padding="20dp"
+                app:srcCompat="@drawable/ic_arrow_back_white" />
+
+            <TextView
+
+                style="@style/CondensedBoldText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="@string/fnl_title"
+                android:textAllCaps="true"
+                android:textColor="@color/text_white"
+                android:textSize="19dp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/ref_reg" />
+
+            <TextView
+                android:id="@+id/fnlInfoRegReferalText"
+                style="@style/BoldTextRoboto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:paddingStart="25dp"
+                android:paddingLeft="25dp"
+                android:paddingEnd="27dp"
+                android:paddingRight="27dp"
+                android:text="@string/fnl_info_text"
+                android:textColor="@color/text_white"
+                android:textSize="14dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="64dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="25dp"
+                    android:layout_marginRight="25dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingBottom="24dp">
+
+
+                    <EditText
+                        android:id="@+id/editTextViewSend"
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:background="@null"
+                        android:gravity="center"
+                        android:hint="@string/fnl_hint"
+                        android:padding="4dp"
+                        android:textColor="@color/text_white"
+                        android:textSize="16dp"
+                        android:theme="@style/sendWhileEditText" />
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@color/text_white" />
+                </LinearLayout>
+
+                <ImageView
+                    android:padding="12dp"
+                    app:srcCompat="@drawable/ic_qr_code"
+                    android:id="@+id/showScannerQRCode"
+                    android:layout_marginRight="20dp"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@drawable/bg_gr_scanner_button" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textViewSend"
+                style="@style/CondensedBoldText"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginBottom="22dp"
+                android:background="@drawable/fnl_bg_send_code"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="@string/fnl_text_reg_button"
+                android:textAllCaps="true"
+                android:textColor="@color/frl_color_reg_button"
+                android:textSize="18dp" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

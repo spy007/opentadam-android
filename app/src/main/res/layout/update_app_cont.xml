@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#BF000000"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:clickable="true"
+    android:focusable="true"
+    android:padding="32dp"
+    tools:showIn="@layout/a_work"
+    android:id="@+id/updateAppLinearLayout"
+    tools:visibility="visible">
+
+    <TextView
+        style="@style/MediumText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:gravity="center"
+        android:text="@string/update_app_title"
+        android:textColor="@color/text_white"
+        android:textSize="32dp" />
+
+    <TextView
+        style="@style/MediumText"
+        android:layout_width="312dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="@string/update_app_text"
+        android:textColor="@color/text_white"
+        android:textSize="18dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/updateAppSendTextView"
+        android:layout_width="268dp"
+        style="@style/CondensedBoldText"
+        android:background="@drawable/bg_button_gradient"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:textSize="24dp"
+        android:textAllCaps="true"
+        android:text="@string/fupd_text_yes"
+        android:textColor="@color/text_white" />
+</LinearLayout>

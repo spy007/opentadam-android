@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="history_plh/data_history.json"
+        app:lottie_loop="true" />
+
+    <LinearLayout
+        android:background="@color/bg_while"
+        android:id="@+id/frb_body_history"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <ScrollView
+                android:id="@+id/frh_scroll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <FrameLayout
+                            android:id="@+id/fref_hist_period"
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp">
+
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_gravity="left|center"
+                                android:padding="28dp"
+                                app:srcCompat="@drawable/ic_fref_hist_back_period" />
+
+                            <TextView
+                                android:id="@+id/fref_hist_perid"
+                                style="@style/BoldTextRoboto"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="4dp"
+                                android:textColor="@color/fref_blask"
+                                android:textSize="13dp" />
+
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_gravity="right|center"
+                                android:padding="28dp"
+                                android:rotation="180"
+                                app:srcCompat="@drawable/ic_fref_hist_back_period" />
+                        </FrameLayout>
+
+
+                        <include layout="@layout/fref_hist_graf_layout" />
+
+                        <include layout="@layout/fref_hist_popup" />
+
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingStart="26dp"
+                        android:paddingLeft="26dp"
+                        android:paddingEnd="24dp"
+                        android:paddingRight="24dp"
+                        android:paddingBottom="16dp">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <FrameLayout
+                                android:layout_width="14dp"
+                                android:layout_height="14dp"
+                                android:background="@drawable/fref_hist_bg_krug_plus_30">
+
+                                <View
+                                    android:layout_width="10dp"
+                                    android:layout_height="10dp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/fref_hist_bg_krug_plus" />
+
+                            </FrameLayout>
+
+                            <TextView
+                                style="@style/LightText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="4dp"
+                                android:text="@string/frh_add_summ"
+                                android:textColor="@color/fref_blask"
+                                android:textSize="13dp" />
+
+                            <FrameLayout
+                                android:layout_width="14dp"
+                                android:layout_height="14dp"
+                                android:layout_marginLeft="12dp"
+                                android:background="@drawable/fref_hist_bg_krug_minus_30">
+
+                                <View
+                                    android:layout_width="10dp"
+                                    android:layout_height="10dp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/fref_hist_bg_krug_minus" />
+
+                            </FrameLayout>
+
+                            <TextView
+                                style="@style/LightText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="4dp"
+                                android:text="@string/frh_minus_summ"
+                                android:textColor="@color/fref_blask"
+                                android:textSize="13dp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/fref_hist_title_list"
+                            style="@style/MediumText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginTop="24dp"
+                            android:layout_marginBottom="6dp"
+                            android:textAllCaps="true"
+                            android:textColor="@color/fref_history_title"
+                            android:textSize="13dp"
+                            android:visibility="gone" />
+
+                        <LinearLayout
+                            android:id="@+id/fref_hist_cont_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/frbh_send"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="26dp"
+                        android:layout_marginLeft="26dp"
+                        android:layout_marginEnd="24dp"
+                        android:layout_marginRight="24dp"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/bg_fref_hist_button"
+                        android:gravity="center"
+                        android:text="@string/frbh_send_text_30"
+                        android:textAllCaps="true"
+                        android:textColor="@color/fref_history_text_button"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+            </ScrollView>
+
+        </FrameLayout>
+
+
+    </LinearLayout>
+
+    <!--    <include layout="@layout/v2ref_progress_rest" />-->
+
+    <LinearLayout
+        android:id="@+id/frb_empty_page"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/text_white"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="110dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:srcCompat="@drawable/ic_empty_history" />
+
+        <TextView
+            style="@style/CondensedRegularText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/frh_empty_text"
+            android:textAllCaps="true"
+            android:textColor="@color/fref_bg_plus"
+            android:textSize="14dp" />
+
+        <TextView
+            style="@style/RegularTextRoboto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/frh_empty_help"
+            android:textColor="@color/fref_color_period_value"
+            android:textSize="13dp" />
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,17 @@
+syntax: glob
+*.apk
+*.ap_
+bin/
+gen/
+fabric.properties
+.gradle
+.idea/
+build/
+*.iml
+*.ipr
+*.iws
+captures
+Thumbs.db
+.DS_Store
+local.properties
+*.hgignore.swp

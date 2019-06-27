@@ -1,0 +1,195 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.opentadam.ui.order.V2FOrderHistoryInfo">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="24dp">
+
+        <include layout="@layout/v2_title_blak" />
+
+        <TextView
+            android:id="@+id/f_o_h_i_delete_button"
+            style="@style/CondensedBoldText"
+            android:layout_width="140dp"
+            android:layout_height="32dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/v3_bg_oval_close_ser"
+            android:gravity="center"
+            android:text="@string/f_s_o_delete_route"
+            android:textAllCaps="true"
+            android:textColor="@color/text_white"
+            android:textSize="12dp" />
+
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/order_history_time_prelum"
+                style="@style/BoldText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="24dp"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14dp" />
+
+            <LinearLayout
+                android:id="@+id/order_history_cont"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:orientation="vertical" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="-24dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingBottom="24dp"
+                android:paddingLeft="24dp"
+                android:paddingTop="24dp">
+
+                <LinearLayout
+                    android:id="@+id/cont_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="24dp"
+                    android:orientation="vertical" />
+
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:paddingRight="24dp">
+
+                    <include layout="@layout/separator_default" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:baselineAligned="false"
+                    android:gravity="top"
+                    android:orientation="horizontal"
+                    android:paddingRight="24dp">
+
+                    <TextView
+                        style="@style/BoldText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:layout_weight="1"
+                        android:text="@string/itog_text"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="18dp" />
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:background="@color/text_white"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingLeft="16dp">
+
+                        <TextView
+                            android:id="@+id/finish_cost"
+                            style="@style/BoldText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAllCaps="true"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="32dp" />
+
+                        <TextView
+                            android:id="@+id/route_cost_value_dec"
+                            style="@style/BoldText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="1dp"
+                            android:layout_marginTop="-2dp"
+
+                            android:textAllCaps="true"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="18dp"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/value_currency_short"
+                            style="@style/LightText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="1dp"
+                            android:layout_marginTop="-2dp"
+
+                            android:textAllCaps="true"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="18dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+
+        <TextView
+            android:id="@+id/button_revers"
+            style="@style/CondensedBoldText"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_button_revers_route"
+            android:gravity="center"
+            android:text="@string/order_revers_value"
+            android:textAllCaps="true"
+            android:textColor="@color/text_white"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/button_double"
+            style="@style/CondensedBoldText"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_button_double_route"
+            android:gravity="center"
+            android:text="@string/order_double_value"
+            android:textAllCaps="true"
+            android:textColor="@color/text_white"
+            android:textSize="12dp" />
+    </LinearLayout>
+
+</LinearLayout>

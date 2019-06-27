@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sothree.slidinguppanel.SlidingUpPanelLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:sothree="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/frouteo_sl_panel_time_preorder"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="bottom"
+    sothree:umanoFadeColor="@color/bg_fade"
+    sothree:umanoOverlay="true"
+    sothree:umanoPanelHeight="0dp"
+    sothree:umanoShadowHeight="0dp">
+
+    <include layout="@layout/v3_froute_body" />
+
+    <include layout="@layout/v3_froute_menu_time_preorder" />
+
+</com.sothree.slidinguppanel.SlidingUpPanelLayout>

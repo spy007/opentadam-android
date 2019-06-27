@@ -1,0 +1,57 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/body_item"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <View
+        android:layout_width="16dp"
+        android:layout_height="match_parent" />
+
+    <ImageView
+        android:id="@+id/item_menu_icon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        app:srcCompat="@drawable/status_delete" />
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="-2dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/item_menu_text"
+            style="@style/RegularTextRoboto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_white"
+            android:textSize="18dp" />
+
+        <TextView
+            android:layout_marginTop="22dp"
+            android:id="@+id/sub_menu_text"
+            style="@style/RegularTextRoboto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_white"
+            android:textSize="14dp" />
+    </FrameLayout>
+
+
+    <TextView
+        android:id="@+id/count_my_order"
+        style="@style/RegularTextRoboto"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/bg_krug_brend"
+        android:gravity="center"
+        android:text="1"
+        android:textSize="14dp"
+        android:visibility="gone" />
+</LinearLayout>

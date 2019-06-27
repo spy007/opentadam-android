@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:clickable="true"
+    android:focusable="true"
+    android:id="@+id/ibv_body"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <View
+            android:id="@+id/ibl_top"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/ibv_bg_info_blok" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal">
+
+            <View
+                android:id="@+id/ibl_left"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@color/ibv_bg_info_blok" />
+
+            <FrameLayout
+                android:id="@+id/blok_transp"
+                android:layout_width="100dp"
+                android:layout_height="100dp">
+
+                <ImageView
+                    android:id="@+id/ibv_ic_point"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/ibv_point_transparent" />
+
+            </FrameLayout>
+
+            <View
+                android:id="@+id/ibl_right"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/ibv_bg_info_blok" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/ibl_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/ibv_bg_info_blok" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/ibv_text_info"
+        style="@style/BoldText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="124dp"
+        android:gravity="center"
+        android:textColor="@color/text_white"
+        android:textSize="18dp" />
+
+</FrameLayout>

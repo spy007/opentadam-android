@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sothree.slidinguppanel.SlidingUpPanelLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:sothree="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/sl_panel_menu_set_payments"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="bottom"
+    sothree:umanoFadeColor="@color/bg_fade"
+    sothree:umanoOverlay="true"
+    sothree:umanoPanelHeight="0dp"
+    sothree:umanoShadowHeight="0dp">
+
+    <FrameLayout
+        android:id="@+id/v3_fr"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/v3_f_route_body" />
+
+
+        <LinearLayout
+            android:id="@+id/fr_cont_cost"
+            android:layout_width="match_parent"
+            android:paddingBottom="2dp"
+            android:layout_height="64dp"
+            android:layout_gravity="bottom"
+            android:background="@color/bg_while"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="24dp"
+            android:paddingRight="8dp">
+
+            <ImageView
+                android:id="@+id/edit_cost"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="22dp"
+                android:layout_marginRight="22dp"
+                android:background="@drawable/bg_edit_cost"
+                android:padding="6dp"
+                android:visibility="gone"
+                sothree:srcCompat="@drawable/v3_ic_edit" />
+
+            <LinearLayout
+                android:id="@+id/fr_send_order_servers"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_route_button_send"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingEnd="24dp"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp"
+                android:paddingStart="24dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/froute_send_text"
+                        style="@style/CondensedBoldText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fr_send_button_text"
+                        android:textAllCaps="true"
+                        android:textColor="@color/text_white"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/fr_hint_tarif"
+                        style="@style/CondensedBoldText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textAllCaps="true"
+                        android:textColor="@color/text_white"
+                        android:textSize="10dp"
+                        android:visibility="gone" />
+
+                    <include layout="@layout/froute_button_cost_base" />
+                </LinearLayout>
+
+                <include layout="@layout/froute_button_cost_hint" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/time_order_cont"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:paddingLeft="0dp"
+                android:paddingRight="12dp"
+                sothree:srcCompat="@drawable/ic_froute_preorder" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/fr_tab_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/ic_show_left_menu"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:paddingBottom="14dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="14dp"
+                sothree:srcCompat="@drawable/ic_menu_black_24dp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:id="@+id/buttom_urgent1"
+                android:layout_width="128dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="54dp"
+                android:background="@drawable/bg_button_add_cost_info"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="-4dp"
+                    sothree:srcCompat="@drawable/v3_ic_urgent" />
+
+                <TextView
+                    style="@style/CondensedBoldText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:text="@string/high_demand"
+                    android:textAllCaps="true"
+                    android:textColor="@color/text_white"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/fr_cont_full_tarif"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bg_fade_reg"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="gone">
+
+            <com.opentadam.ui.creating_an_order.PagerContainer
+                android:id="@+id/full_pager_container"
+                android:layout_width="match_parent"
+                android:layout_height="456dp"
+                android:layout_marginTop="48dp">
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/full_overlap_pager"
+                    android:layout_width="280dp"
+                    android:layout_height="422dp"
+                    android:layout_gravity="center" />
+
+            </com.opentadam.ui.creating_an_order.PagerContainer>
+        </FrameLayout>
+
+        <com.opentadam.ui.blok_info.ViewInfoBlok
+            android:id="@+id/ibv_info_blok"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/fr_error_location_def"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="bottom|right"
+            android:layout_marginBottom="88dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/bg_ic_set_location"
+            android:padding="6dp"
+            android:visibility="gone"
+            sothree:srcCompat="@drawable/ic_set_loc" />
+
+        <FrameLayout
+            android:id="@+id/fr_error_tarif_work"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="108dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/bg_error_service_reg"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/fr_error_tarif_text"
+                style="@style/BoldTextRoboto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:paddingLeft="24dp"
+                android:paddingRight="4dp"
+                android:textColor="@color/text_white"
+                android:textSize="16dp" />
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/fr_error_not_available"
+            style="@style/BoldTextRoboto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="90dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:includeFontPadding="false"
+            android:text="@string/fr_error_service_not_available"
+            android:textSize="22dp"
+            android:visibility="gone" />
+
+        <FrameLayout
+            android:id="@+id/fr_error_cont_marker_center"
+            android:layout_width="40dp"
+            android:layout_height="72dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="44dp"
+                android:layout_gravity="center|top"
+                sothree:srcCompat="@drawable/v3froute_ic_pin_big" />
+
+
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_gravity="center|top"
+                android:layout_marginTop="44dp"
+                sothree:srcCompat="@drawable/v3froute_ic_micro_pin" />
+
+            <ImageView
+                android:id="@+id/fr_error_ic_servis"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center|top"
+                android:layout_marginTop="9dp"
+                sothree:srcCompat="@drawable/ic_report_problem_blask" />
+
+            <ImageView
+                android:id="@+id/fr_error_ic_net"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_gravity="center|top"
+                android:layout_marginTop="9dp"
+                android:visibility="gone"
+                sothree:srcCompat="@drawable/ic_error_net" />
+
+            <com.opentadam.ui.creating_an_order.animate.APinFroute
+                android:id="@+id/apin_froute_error_service"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center|top"
+                android:layout_marginTop="6dp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/menu_set_pay_sl_panel_body"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+
+    <include layout="@layout/menu_set_payments" />
+</com.sothree.slidinguppanel.SlidingUpPanelLayout>

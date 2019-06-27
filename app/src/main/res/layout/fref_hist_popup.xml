@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/hist_popup"
+    android:layout_width="160dp"
+    android:layout_height="86dp"
+    android:orientation="vertical"
+    android:paddingBottom="14dp"
+    android:paddingEnd="10dp"
+    android:paddingLeft="12dp"
+    android:paddingRight="10dp"
+    android:paddingStart="12dp"
+    android:paddingTop="4dp"
+    android:visibility="gone"
+    tools:ignore="RtlSymmetry">
+
+    <TextView
+        android:id="@+id/fref_hist_popup_data"
+        style="@style/LightText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="true"
+        android:textColor="@color/fref_color_help"
+        android:textSize="13dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:baselineAligned="false"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/BoldTextRoboto"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/frhp_plus_summ"
+            android:textColor="@color/fref_color_segment_two"
+            android:textSize="10dp" />
+
+
+        <TextView
+            android:id="@+id/fref_hist_popup_rub"
+            style="@style/MediumText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_white"
+            android:textSize="13dp" />
+
+        <TextView
+            android:id="@+id/fref_hist_popup_kop"
+            style="@style/ThinText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_white"
+            android:textSize="13dp" />
+
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            app:srcCompat="@drawable/ic_referal_bonus_icon" />
+        <!--        <TextView
+                    android:id="@+id/fref_hist_popup_cur"
+                    style="@style/ThinText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAllCaps="true"
+                    android:textColor="@color/text_white"
+                    android:textSize="13dp" />-->
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/BoldTextRoboto"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/frhp_minus_summ"
+            android:textColor="@color/fref_bg_minus"
+            android:textSize="10dp" />
+
+
+        <TextView
+            android:id="@+id/fref_hist_minus_popup_rub"
+            style="@style/MediumText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_white"
+            android:textSize="13dp" />
+
+        <TextView
+            android:id="@+id/fref_hist_minus_popup_kop"
+            style="@style/ThinText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_white"
+            android:textSize="13dp" />
+
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            app:srcCompat="@drawable/ic_referal_bonus_icon" />
+        <!--
+                <TextView
+                    android:id="@+id/fref_hist_minus_popup_cur"
+                    style="@style/ThinText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAllCaps="true"
+                    android:textColor="@color/text_white"
+                    android:textSize="13dp" />-->
+    </LinearLayout>
+
+</LinearLayout>

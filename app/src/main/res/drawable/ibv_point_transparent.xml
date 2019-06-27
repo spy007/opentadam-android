@@ -1,0 +1,18 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="140dp"
+    android:height="140dp"
+    android:viewportHeight="128"
+    android:viewportWidth="128">
+    <path
+        android:fillColor="@color/ibv_bg_info_blok"
+        android:pathData="M64,0H0v64C0,28.7 28.7,0 64,0z" />
+    <path
+        android:fillColor="@color/ibv_bg_info_blok"
+        android:pathData="M0,64v64h64C28.7,128 0,99.3 0,64z" />
+    <path
+        android:fillColor="@color/ibv_bg_info_blok"
+        android:pathData="M64,0c35.3,0 64,28.7 64,64V0H64z" />
+    <path
+        android:fillColor="@color/ibv_bg_info_blok"
+        android:pathData="M64,128h64V64C128,99.3 99.3,128 64,128z" />
+</vector>

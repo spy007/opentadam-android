@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="64dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/icon_ch"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginBottom="-2dp"
+            app:srcCompat="@drawable/ic_check_circle"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            app:srcCompat="@drawable/ic_personal_account" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:visibility="gone"
+                style="@style/LightText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/private_money"
+                android:textColor="@color/text_default_color"
+                android:textSize="21dp" />
+
+            <TextView
+                android:id="@+id/summ_debet"
+                style="@style/BoldText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-4dp"
+                android:textColor="@color/bg_item_upd"
+                android:textSize="21dp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/sa_info_pay"
+                style="@style/LightText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-2dp"
+                android:lineSpacingMultiplier="0.9"
+                android:text="@string/sa_info_pay_debet"
+                android:textColor="@color/text_default_color"
+                android:textSize="16dp"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/summ"
+            style="@style/BoldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_default_color"
+            android:textSize="21dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/button_show_debet"
+        style="@style/LightText"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/bg_debet_button"
+        android:gravity="center"
+        android:text="@string/b_s_d_text"
+        android:textColor="@color/text_white"
+        android:textSize="21dp" />
+</LinearLayout>

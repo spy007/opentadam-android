@@ -1,0 +1,37 @@
+/*
+ * Copyright (C) 2019 TadamGroup, LLC.
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+
+package com.opentadam.network.rest;
+
+import com.google.gson.annotations.SerializedName;
+
+public class OSMAddress {
+    @SerializedName("address29")
+    public String alias;
+    @SerializedName("bus_stop")
+    public String busStop;
+
+    @SerializedName("road")
+    public String street;
+    @SerializedName("city")
+    public String city;
+    @SerializedName("state")
+    public String state;
+    @SerializedName("country")
+    public String country;
+    @SerializedName("house_number")
+    public String house;
+}

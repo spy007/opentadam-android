@@ -1,0 +1,219 @@
+apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation('com.crashlytics.sdk.android:crashlytics:2.5.5@aar') {
+        transitive = true
+    }
+    implementation('com.h6ah4i.android.widget.advrecyclerview:advrecyclerview:0.9.3@aar') {
+        transitive = true
+    }
+
+    //noinspection GradleDependency
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    //noinspection GradleDependency
+    implementation 'com.android.support:support-annotations:27.1.1'
+    //noinspection GradleCompatible,GradleDependency
+    implementation 'com.android.support:support-v4:27.1.1'
+    //noinspection GradleDependency
+    implementation 'com.android.support:support-v13:27.1.1'
+    //noinspection GradleDependency
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    //noinspection GradleDependency
+    implementation 'com.android.support:support-vector-drawable:27.1.1'
+    //noinspection GradleDependency
+    implementation 'com.android.support:cardview-v7:27.1.1'
+    //noinspection GradleDependency
+    implementation 'com.android.support:design:27.1.1'
+    //noinspection GradleDependency
+    implementation 'com.google.android.gms:play-services-location:15.0.1'
+    //noinspection GradleDependency
+    implementation 'com.google.android.gms:play-services-analytics:16.0.3'
+    //noinspection GradleDependency
+    implementation 'com.google.android.gms:play-services-maps:15.0.1'
+    implementation 'com.google.maps.android:android-maps-utils:0.5'
+    //firebase
+    //noinspection GradleDependency
+    implementation 'com.google.firebase:firebase-core:16.0.3'
+    //noinspection GradleDependency
+    implementation 'com.google.firebase:firebase-invites:16.0.3'
+    //noinspection GradleDependency
+    implementation 'com.google.firebase:firebase-messaging:17.3.1'
+    // Библиотека Appmetrica SDK.
+    implementation 'com.yandex.android:mobmetricalib:3.6.0'
+    // Опционально. Библиотека Play Install Referrer.
+    implementation 'com.android.installreferrer:installreferrer:1.0'
+    // Библиотека пуши яндекс Appmetrica SDK
+    implementation 'com.yandex.android:mobmetricapushlib:1.4.1'
+    //noinspection GradleDependency
+    implementation 'com.jakewharton:butterknife:5.1.1'
+    implementation 'uk.co.chrisjenx:calligraphy:2.1.0'
+    implementation 'com.squareup.retrofit:retrofit:1.9.0'
+    //noinspection GradleDependency
+    implementation 'com.squareup:otto:1.3.5'
+    implementation 'com.squareup.okhttp:okhttp-urlconnection:2.7.2'
+    implementation 'com.sothree.slidinguppanel:library:3.3.1'
+    implementation 'com.pkmmte.view:circularimageview:1.1'
+    implementation 'net.danlew:android.joda:2.9.9'
+    //noinspection GradleDependency
+    implementation 'com.airbnb.android:lottie:2.0.0-beta3'
+    implementation files('libsdep/commons-lang3-3.6.jar')
+    implementation files('libsdep/hellocharts-library-release.aar')
+    // WeakHandler
+    implementation 'com.badoo.mobile:android-weak-handler:1.0'
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.7.0'
+
+    // Osm
+    //noinspection GradleDependency
+    implementation 'org.osmdroid:osmdroid-android:6.0.1'
+    // dex
+    implementation 'com.android.support:multidex:1.0.3'
+    // считать QR
+    implementation 'me.dm7.barcodescanner:zxing:1.9.8'
+}
+
+def appVersionCode = Integer.valueOf(System.env.VERSION_CODE ?: 99999)
+def appVersionName = System.env.VERSION_NAME ?: "2.9.99999"
+
+def fabricApiSecret = "disabled"
+def fabricApiKey = "disabled"
+
+android {
+    File crashlyticsProperties = new File("${project.projectDir.absolutePath}/fabric.properties")
+    applicationVariants.all { variant ->
+        variant.productFlavors.each { flavor ->
+            def variantSuffix = variant.name.capitalize()
+            def generatePropertiesTask = task("fabricGenerateProperties${variantSuffix}") << {
+                Properties properties = new Properties()
+                properties.put("apiSecret", flavor.fabricApiSecret)
+                properties.store(new FileWriter(crashlyticsProperties), "")
+            }
+
+            def generateResourcesTask = project.tasks.getByName("fabricGenerateResources${variantSuffix}")
+            generateResourcesTask.dependsOn generatePropertiesTask
+            generateResourcesTask.doLast {
+                crashlyticsProperties.delete()
+            }
+        }
+    }
+
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
+    useLibrary 'org.apache.http.legacy'
+
+
+    defaultConfig {
+        manifestPlaceholders = [google_maps_key: "default_key", fabricApiKey: fabricApiKey,"appId":"disabled"]
+        resValue "string", "appName", 'appName'
+        minSdkVersion 15
+        targetSdkVersion 27
+        versionCode appVersionCode
+        versionName appVersionName
+        multiDexEnabled true
+        resConfigs "en", "ru", "am", "az", "be", "kk", "ka", "my", "tr", "uk", "uz", "ro", "pl"
+/* добавлено для студии 3 и gradle 3.0.0 */
+        vectorDrawables.useSupportLibrary = true
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath true
+            }
+        }
+/* end*/
+        applicationId "com.opentadam"
+        buildConfigField "String[]", "REST_SERVER", "null"
+        buildConfigField "String", "downloadApkUrl", "null"
+        buildConfigField "String", "URL_POLICY_PRIVACY", "null"
+        buildConfigField "String", "URL_USER_AGREEMENT", "null"
+
+        buildConfigField "String[]", "availableLanguages", "new String[]{\"sys\",\"ru\",\"ca\",\"az\",\"en\",\"tr\",\"kk\",\"ka\",\"ro\",\"pl\"}"
+
+        buildConfigField "String", "HiveProfile", "null"
+
+        // сообщение о повышении тарифа
+        buildConfigField "String", "textInfoAddPrice", " \"В вашем регионе действует повышенный тариф\" "
+        // message referral
+
+        buildConfigField "String", "dynamicLinkDomain", "null"
+        buildConfigField "String", "dynamicQueryParameter", "\"referral\""
+        buildConfigField "String", "iosBundleId", "null"
+        buildConfigField "String", "iosAppleId", "null"
+
+        buildConfigField "Double[]", "defaultLatLon", "null"
+
+        // разрешено менять цвет иконок превью тарифов
+        buildConfigField "boolean", "isChangeColorIPTariffs", "true"
+
+// Минимальный масштаб карты для отображения ближайших машин
+        buildConfigField "Float", "zoomMinMapsCarList", "null"
+// Максимальный масштаб карты для отображения ближайших машин
+        buildConfigField "Float", "zoomMaxMapsCarList", "null"
+        // Баннер кассса нова
+        buildConfigField "boolean", "menuBottomBannerState", "false"
+        // Ссылка баннера кассса нова null
+        buildConfigField "String", "menuBottomBannerLink", "null"
+
+        // Инфа в регистрации рефералки
+        buildConfigField "String", "infoRegReferalText", "null"
+
+        // Период предложения обновления при его наличии
+        buildConfigField "int", "countHourPeriodUpdateVersionApp", "24"
+
+        // Лимит количества активных заказов
+        buildConfigField "int", "limitNumberActiveOrders", "5"
+
+        // Урл поддержки
+        //  buildConfigField "String", "supportButtonURL", "\"https://www.yandex.ru\""
+        buildConfigField "String", "supportButtonURL", "null"
+
+        // УРЛ для скачивания buildConfigField с удаленного сервера
+        buildConfigField "String", "buildCFUrl", "null"
+
+        buildConfigField "String", "test", "null"
+        buildConfigField "String", "keyAppMetrica", "null"
+
+        // Минимальная версия приложения
+        buildConfigField "int", "minimalCodeGoogleVersion", "0"
+        // текущая версия приложения
+        buildConfigField "int", "currentCodeGoogleVersion", "0"
+        // Настройки PUSH уведомлений
+       // Текст для пуш уведомления по умолчанию
+        buildConfigField "String", "urlPushStringsDefault", "\"https://drive.google.com/uc?export=download&id=1e8RvPSy-dZgqeXmibzj87tYvEF1UtuIt\""
+
+       // Текст для пуш уведомлений для локализации RU
+       //buildConfigField "String", "urlPushStringsRU", "\"https://drive.google.com/uc?export=download&id=1e8RvPSy-dZgqeXmibzj87tYvEF1UtuIt\""
+
+        buildConfigField "java.util.HashMap<String, String>", "localizationPush", "new java.util.HashMap<String, String>() " +
+                "{{ put(\"Default\", \"https://drive.google.com/uc?export=download&id=1e8RvPSy-dZgqeXmibzj87tYvEF1UtuIt\"); }}"
+
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFile 'proguard.cfg'
+        }
+    }
+    /* добавлено для студии 3 и gradle 3.0.0 */
+    flavorDimensions 'work'
+    /* end*/
+
+    productFlavors {
+         opentadam { opentadamFlavor ->
+            ext.fabricApiSecret = fabricApiSecret
+            apply from: 'opentadam.gradle', to: opentadamFlavor
+            resValue "string", "appName", applicationId
+        }
+    }
+
+    apply plugin: 'com.google.gms.google-services'
+}
+

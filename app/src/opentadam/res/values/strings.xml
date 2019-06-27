@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name"  translatable="false">DEV.Omsk V2</string>
+    <string name="facebook_app_id"  translatable="false">0</string>
+    <string name="fnl_info_text">Регистрируйтесь и получайте на свой бонусный счет 1,5% от стоимости каждой поездки. Приглашайте друзей и получайте 1,5% от стоимости каждой поездки ваших друзей.</string>
+</resources>

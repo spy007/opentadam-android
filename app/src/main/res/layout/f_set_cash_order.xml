@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sothree.slidinguppanel.SlidingUpPanelLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:sothree="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fsco_sl_panel"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="bottom"
+    sothree:umanoFadeColor="@color/bg_fade"
+    sothree:umanoOverlay="true"
+    sothree:umanoPanelHeight="0dp"
+    sothree:umanoShadowHeight="0dp">
+
+    <FrameLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/body_fsco"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/text_white"
+                android:orientation="vertical"
+                android:paddingBottom="24dp"
+                android:paddingLeft="24dp"
+                android:paddingRight="16dp">
+
+                <ImageView
+                    android:id="@+id/bask"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="-4dp"
+                    android:layout_marginTop="12dp"
+                    android:paddingBottom="12dp"
+                    android:paddingRight="24dp"
+                    android:paddingTop="12dp"
+                    sothree:srcCompat="@drawable/ic_menu_black_24dp" />
+
+                <TextView
+                    android:id="@+id/f_s_c_title"
+                    style="@style/LightText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/title_cash_value"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="28dp" />
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/cont_cash"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/text_white"
+                            android:orientation="vertical" />
+
+
+                        <include layout="@layout/separator_default" />
+
+
+                        <LinearLayout
+                            android:id="@+id/add_card"
+                            android:layout_width="match_parent"
+                            android:layout_height="64dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/ic_plus_card"
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:layout_marginRight="24dp"
+                                android:background="@drawable/bg_add_payment"
+                                android:padding="8dp"
+                                sothree:srcCompat="@drawable/ic_plus_while" />
+
+                            <TextView
+                                style="@style/LightText"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/fsco_add_pay_methods"
+                                android:textColor="@color/text_default_color"
+                                android:textSize="21dp" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/fsco_sl_panel_body"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </FrameLayout>
+
+        <com.opentadam.ui_payemnts_metods.ProgressView
+            android:id="@+id/fsco_progress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+
+    <include layout="@layout/fsco_sp_menu" />
+</com.sothree.slidinguppanel.SlidingUpPanelLayout>
+
+
+
+

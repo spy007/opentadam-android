@@ -1,0 +1,46 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/text_white"
+    android:orientation="vertical"
+    android:paddingBottom="24dp"
+    android:paddingLeft="24dp"
+    android:paddingRight="16dp"
+    tools:context="com.opentadam.ui.order.V2FOptions">
+
+    <ImageView
+        android:id="@+id/bask"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="-4dp"
+        android:layout_marginTop="12dp"
+        android:paddingBottom="12dp"
+        android:paddingRight="24dp"
+        android:paddingTop="12dp"
+        app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
+
+    <TextView
+        style="@style/LightText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/title_set_options"
+        android:textColor="@color/colorPrimary"
+        android:textSize="28dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:id="@+id/cont_option"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/text_white"
+            android:orientation="vertical" />
+    </ScrollView>
+</LinearLayout>

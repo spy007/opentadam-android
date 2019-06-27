@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--цвета для кастомизации-->
+    <color name="colorPrimary">#72a9c3</color>
+    <color name="colorTwo">#76cdd0</color>
+    <color name="colorAccent">#72a9c3</color>
+    <color name="colorPrimary_90">#e572a9c3</color>
+    <color name="colorTwo_90">#e676cdd0</color>
+    <!--end-->
+
+
+    <color name="colorTansparent">#0072a9c3</color>
+    <color name="colorPrimaryDark">#000000</color>
+
+    <color name="nav_background">#313c40</color>
+    <color name="bg_selector_key">#1A000000</color>
+    <color name="text_sec">#93999b</color>
+    <color name="bg_item_upd">#ec5105</color>
+    <color name="text_white">#FFFFFF</color>
+    <color name="bg_while">#FFFFFF</color>
+    <color name="fr_tarif_sec">#BDBDBD</color>
+
+    <color name="separator">#CCCCCC</color>
+    <color name="text_color">#313c40</color>
+    <color name="history_status_delete">#bec2c3</color>
+    <color name="text_white50">#80ffffff</color>
+    <color name="text_default_color">#313c40</color>
+    <color name="text_default_color80">#b4313c40</color>
+    <color name="text_default_color60">#78313c40</color>
+    <color name="text_default_color30">#48313c40</color>
+
+    <color name="text_white80">#b4ffffff</color>
+    <color name="text_white60">#78ffffff</color>
+    <color name="text_white30">#46ffffff</color>
+
+    <color name="bg_fade">#40000000</color>
+    <color name="bg_fade_reg">#7d000000</color>
+    <color name="time_devider">#14000000</color>
+    <color name="text_sec_time">#ACAFB0</color>
+    <color name="color_separator0">#19000000</color>
+    <color name="color_separator1">#19ffffff</color>
+    <color name="color_unchecked">#C4C4C4</color>
+    <color name="fref_bg_separator">#C4C4C4</color>
+    <color name="ibv_bg_info_blok">#6e000000</color>
+    <color name="bg_error_region">#BF313C40</color>
+    <color name="trasparent">#00ffffff</color>
+    <color name="fref_color_primary">#EEB000</color>
+    <color name="fref_color_primary_50">#7feeb000</color>
+    <color name="fref_color_two">#F1CC44</color>
+    <color name="fref_color_segment_two">#F2994A</color>
+    <color name="fref_text_sec">#4D313C40</color>
+    <color name="fref_color_add_bunus">#3FD8A4</color>
+    <color name="fref_color_remove_bonus">#EB5757</color>
+    <color name="fref_color_help">#7A7A7A</color>
+    <color name="fref_color_period_value">#4D313C40</color>
+    <color name="fref_bg_plus">#F2994A</color>
+    <color name="fref_bg_plus_30">#5af2994a</color>
+    <color name="fref_blask">#000000</color>
+    <color name="fref_bg_minus">#EB5757</color>
+    <color name="fref_bg_minus_30">#5aeb5757</color>
+    <color name="fref_history_title">#4D313C40</color>
+    <color name="fref_history_text_button">#DADADA</color>
+    <color name="fref_bg_list_minus">#EB5757</color>
+    <color name="fref_bg_list_add">#3FD8A4</color>
+    <color name="bg_snackbar_error">#94000000</color>
+    <color name="frl_color_reg_button">#F1BC23</color>
+
+</resources>

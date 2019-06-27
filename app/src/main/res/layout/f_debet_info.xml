@@ -1,0 +1,67 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/text_white"
+    android:orientation="vertical"
+    android:paddingBottom="24dp"
+    android:paddingLeft="24dp"
+    android:paddingRight="16dp"
+    tools:context="com.opentadam.ui_payemnts_metods.V2FSetCashOrder">
+
+    <ImageView
+        android:id="@+id/bask"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="-4dp"
+        android:layout_marginTop="12dp"
+        android:paddingBottom="12dp"
+        android:paddingRight="24dp"
+        android:paddingTop="12dp"
+        app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
+
+    <TextView
+        style="@style/LightText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/title_danger"
+        android:textColor="@color/colorPrimary"
+        android:textSize="28dp" />
+
+    <TextView
+        style="@style/LightText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/info_part0"
+        android:textSize="21dp" />
+
+    <TextView
+        android:id="@+id/value_debet"
+        style="@style/BoldTextRoboto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/bg_item_upd"
+        android:textSize="32dp" />
+
+    <TextView
+        style="@style/LightText"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="@string/info_part1"
+        android:textSize="21dp" />
+
+    <TextView
+        android:id="@+id/show_debet_card"
+        style="@style/LightText"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:text="@string/go_pay"
+        android:textColor="@color/colorPrimary"
+        android:textSize="28dp" />
+</LinearLayout>

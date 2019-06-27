@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/text_white"
+    android:minHeight="146dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/v2_bg_heder_90"
+        android:orientation="vertical"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp">
+
+        <View
+            android:layout_width="24dp"
+            android:layout_height="4dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/bg_light_gray" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_marginTop="6dp">
+
+
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                app:srcCompat="@drawable/ic_my_orders_detalies" />
+
+
+            <TextView
+                android:id="@+id/search_state"
+                style="@style/MediumText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="2dp"
+                android:layout_marginLeft="44dp"
+                android:text="@string/m_s_order_details"
+                android:textColor="@color/text_white"
+                android:textSize="18dp" />
+
+
+            <ImageView
+                android:id="@+id/search_info_call"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="end"
+                app:srcCompat="@drawable/ic_phone_24" />
+        </FrameLayout>
+
+
+    </LinearLayout>
+
+
+    <!--      <include layout="@layout/car_data_cont" />-->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-6dp"
+                    android:background="@color/text_white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:orientation="horizontal"
+                    android:paddingLeft="16dp">
+
+
+                    <TextView
+                        android:id="@+id/route_cost_value_prefix"
+                        style="@style/BoldText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="6dp"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="18dp" />
+
+
+                    <TextView
+                        android:id="@+id/route_cost_value"
+                        style="@style/BoldText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="32dp" />
+
+                    <TextView
+                        android:id="@+id/route_cost_value_dec"
+                        style="@style/BoldText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="-12dp"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="18dp" />
+
+                    <TextView
+                        android:id="@+id/value_currency_short"
+                        style="@style/LightText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="-12dp"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="18dp" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <com.opentadam.view.SeparatorProject
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_height="54dp">
+
+                <ImageView
+                    android:layout_marginLeft="24dp"
+                    android:id="@+id/icon_pay"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_marginRight="8dp" />
+
+                <TextView
+                    android:id="@+id/name_cost"
+                    android:gravity="center_vertical"
+                    style="@style/BoldTextRoboto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="52dp"
+                    android:paddingRight="16dp"
+                    android:textSize="18dp" />
+
+            </LinearLayout>
+
+            <com.opentadam.view.SeparatorProject
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:id="@+id/search_adress_cont"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical" />
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:id="@+id/cont_options"
+                android:paddingLeft="24dp"
+                android:paddingRight="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <LinearLayout
+                android:id="@+id/cont_comment_to_route"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.opentadam.view.SeparatorProject
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/button_change_order"
+        style="@style/LightText"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:paddingBottom="2dp"
+        android:text="@string/button_change_order_text"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24dp" />
+</LinearLayout>
+

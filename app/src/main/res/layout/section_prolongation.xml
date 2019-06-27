@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/f_set_prolongation_cont"
+    android:layout_width="144dp"
+    android:layout_height="144dp"
+    android:layout_margin="12dp"
+    android:background="@drawable/bg_f_prolongation"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/f_set_prolongation_value"
+            style="@style/XBoldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="27sp" />
+
+        <TextView
+            android:id="@+id/f_set_prolongation_minute"
+            style="@style/XBoldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/f_set_prolongation_minute_value"
+            android:textSize="27sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/f_set_prolongation_value_add"
+        style="@style/BoldText"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:text="@string/f_set_prolongation_value_add_value"
+        android:textAllCaps="true"
+        android:textSize="16sp" />
+
+</LinearLayout>

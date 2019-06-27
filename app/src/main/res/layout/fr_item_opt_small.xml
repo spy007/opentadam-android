@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="100dp"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/fr_image_tarif"
+            android:layout_width="64dp"
+            android:layout_height="32dp" />
+
+        <TextView
+            android:id="@+id/fr_name_tarif"
+            style="@style/BoldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-4dp"
+            android:maxLines="1"
+            android:textAllCaps="true"
+            android:textSize="12dp" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/fr_lines"
+        android:visibility="invisible"
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:background="@color/colorPrimary" />
+</FrameLayout>
+

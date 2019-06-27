@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fsco_sl_panel_menu"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:background="@color/bg_while"
+        android:clickable="true"
+        android:orientation="vertical"
+        android:paddingBottom="24dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="16dp"
+        android:paddingTop="16dp">
+
+        <ImageView
+            android:id="@+id/fsco_close_menu"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="right"
+            app:srcCompat="@drawable/ic_close_white_black" />
+
+        <TextView
+            android:id="@+id/fsco_sl_panel_menu_title"
+            style="@style/LightText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-4dp"
+            android:gravity="center"
+            android:textSize="28dp" />
+
+        <LinearLayout
+            android:id="@+id/fsco_sl_panel_menu_title_sub_cont"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-4dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <View
+                android:background="@drawable/bg_krug_text_def"
+                android:layout_width="8dp"
+                android:layout_marginRight="4dp"
+                android:layout_height="8dp" />
+
+            <View
+                android:background="@drawable/bg_krug_text_def"
+                android:layout_width="8dp"
+                android:layout_marginRight="4dp"
+                android:layout_height="8dp" />
+
+            <View
+                android:background="@drawable/bg_krug_text_def"
+                android:layout_width="8dp"
+                android:layout_marginRight="4dp"
+                android:layout_height="8dp" />
+
+            <View
+                android:background="@drawable/bg_krug_text_def"
+                android:layout_width="8dp"
+                android:layout_marginRight="4dp"
+                android:layout_height="8dp" />
+
+            <TextView
+                android:id="@+id/fsco_sl_panel_menu_title_sub"
+                style="@style/BoldText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="32dp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/fsco_sl_panel_menu_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:orientation="vertical" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="top|center"
+        android:background="@drawable/fsco_sl_panel_menu_icon_top"
+        android:clickable="true">
+
+        <ImageView
+            android:id="@+id/fsco_add_pay_ic"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="2dp"
+            android:background="@drawable/bg_add_payment"
+            android:padding="8dp"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_plus_while" />
+
+        <ImageView
+            android:id="@+id/fsco_maestro"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="6dp"
+            android:src="@drawable/acq_maestro"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/fsco_master"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="6dp"
+            android:src="@drawable/acq_master"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/fsco_mir"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="2dp"
+            android:src="@drawable/acq_mirlogo"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/fsco_viza"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="2dp"
+            android:src="@drawable/acq_visalogo"
+            android:visibility="gone" />
+    </FrameLayout>
+
+</FrameLayout>

@@ -1,0 +1,169 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <ImageView
+                android:id="@+id/v2_bask"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginLeft="-4dp"
+                android:layout_marginStart="-4dp"
+                android:layout_marginTop="4dp"
+                android:paddingBottom="12dp"
+                android:paddingEnd="24dp"
+                android:paddingRight="24dp"
+                android:paddingTop="12dp"
+                app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
+
+
+            <TextView
+                android:id="@+id/v2_title"
+                style="@style/LightText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:lineSpacingMultiplier="0.8"
+                android:textColor="@color/colorPrimary"
+                android:textSize="28dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/LightText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/code_send_to_phone"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/sms_value_phone"
+                style="@style/BoldText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16dp" />
+
+        </LinearLayout>
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="12dp">
+
+
+            <EditText
+                android:id="@+id/reg_edit_code"
+                style="@style/LightText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="left|top"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="@string/hint_value_sms"
+                android:imeOptions="actionSend"
+                android:inputType="number"
+                android:paddingLeft="35dp"
+                android:paddingRight="24dp"
+                android:textColorHint="@color/text_sec_time"
+                android:textSize="28dp"
+                android:theme="@style/defaultEditText">
+
+                <requestFocus />
+            </EditText>
+
+            <ImageView
+                android:id="@+id/reg_del_code"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_gravity="right|top"
+                android:paddingBottom="16dp"
+                android:paddingLeft="25dp"
+                android:paddingRight="5dp"
+                android:paddingTop="14dp"
+                app:srcCompat="@drawable/ic_clear_black_24dp" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:paddingTop="12dp">
+
+            <TextView
+                android:id="@+id/reg_get_code"
+                style="@style/CondensedBoldText"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_marginRight="8dp"
+                android:layout_weight="0.5"
+                android:background="@drawable/bg_button_confirm_reg"
+                android:gravity="center"
+                android:text="@string/request_code"
+                android:textAllCaps="true"
+                android:textColor="@color/text_white"
+                android:textSize="11dp" />
+
+            <TextView
+                android:id="@+id/reg_get_call"
+                style="@style/CondensedBoldText"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="0.5"
+                android:background="@drawable/bg_button_confirm_reg"
+                android:gravity="center"
+                android:text="@string/button_get_call"
+                android:textAllCaps="true"
+                android:textColor="@color/text_white"
+                android:textSize="11dp" />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/reg_get_in"
+            style="@style/LightText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="@string/confirm_phone"
+            android:textColor="@color/colorPrimary"
+            android:textSize="28dp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <fragment
+        android:id="@+id/keyboard_number"
+        android:name="com.opentadam.ui.registration.V2KeyNumber"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1" />
+</LinearLayout>
+

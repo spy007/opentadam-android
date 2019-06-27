@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:background="@color/bg_while"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical"
+        android:paddingBottom="24dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="16dp"
+        android:paddingTop="16dp">
+
+        <ImageView
+            android:id="@+id/froute_sl_panel_time_preorder_close_menu"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="right"
+            app:srcCompat="@drawable/ic_close_white_black" />
+
+        <LinearLayout
+            android:id="@+id/fsco_sl_panel_menu_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/time_preorder_15"
+                style="@style/LightText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:text="@string/time_preorder_15"
+                android:textSize="21dp" />
+
+            <TextView
+                android:id="@+id/time_preorder_30"
+                style="@style/LightText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/time_preorder_30"
+                android:layout_marginBottom="32dp"
+                android:textSize="21dp" />
+
+            <TextView
+                android:id="@+id/time_preorder_other_time"
+                style="@style/LightText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:text="@string/time_preorder_other_time"
+                android:textSize="21dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="top|center"
+        android:background="@drawable/fsco_sl_panel_menu_icon_top"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="2dp"
+            app:srcCompat="@drawable/ic_froute_preorder" />
+    </FrameLayout>
+
+</FrameLayout>

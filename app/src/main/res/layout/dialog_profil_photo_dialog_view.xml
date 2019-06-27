@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="312dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp">
+
+    <TextView
+        android:id="@+id/dialog_title"
+        style="@style/CondensedBoldText"
+        android:layout_width="280dp"
+        android:layout_height="46dp"
+        android:gravity="center_vertical"
+        android:textAllCaps="true"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/ad_camera"
+        android:layout_marginTop="6dp"
+        style="@style/LightText"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:text="@string/profile_dialog_camera"
+        android:textSize="21dp" />
+
+    <TextView
+        android:id="@+id/ad_gal"
+        style="@style/LightText"
+        android:layout_marginTop="10dp"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:text="@string/profile_dialog_gal"
+        android:textSize="21dp" />
+
+</LinearLayout>

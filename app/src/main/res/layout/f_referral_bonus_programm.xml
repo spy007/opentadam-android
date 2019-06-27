@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/fref_la_view"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="bonus_plh/data_bonus.json"
+        app:lottie_loop="true" />
+    <LinearLayout
+        android:id="@+id/frb_body_bonus"
+        android:background="@color/bg_while"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/body_empty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="196dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="25dp"
+                                android:layout_marginStart="25dp"
+                                android:layout_marginTop="25dp"
+                                android:text="@string/fref_current_balans"
+                                android:textColor="@color/fref_text_sec"
+                                android:textSize="13dp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:baselineAligned="false"
+                                android:orientation="horizontal"
+                                android:paddingLeft="25dp"
+                                android:paddingStart="25dp">
+
+
+                                <ImageView
+                                    android:layout_width="23dp"
+                                    android:layout_height="28dp"
+                                    android:layout_marginTop="42dp"
+                                    app:srcCompat="@drawable/ic_bonus_icon" />
+
+                                <TextView
+                                    android:id="@+id/fref_currency_rub"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:includeFontPadding="false"
+                                    android:textColor="@color/fref_color_segment_two"
+                                    android:textSize="75dp" />
+
+                                <TextView
+                                    android:id="@+id/fref_currency_kop"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="top"
+                                    android:layout_marginLeft="6dp"
+                                    android:layout_marginStart="6dp"
+                                    android:layout_marginTop="9dp"
+                                    android:includeFontPadding="false"
+                                    android:textColor="@color/fref_color_segment_two"
+                                    android:textSize="24dp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/fref_cont_graf"
+                                android:layout_width="match_parent"
+                                android:layout_height="64dp"
+                                android:layout_marginTop="-14dp"
+                                android:orientation="vertical" />
+                        </LinearLayout>
+
+                        <include layout="@layout/fref_popup" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/fref_period_info"
+                        style="@style/MediumText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="25dp"
+                        android:textAllCaps="true"
+                        android:textColor="@color/fref_color_period_value"
+                        android:textSize="13dp" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="25dp"
+                        android:paddingRight="25dp"
+                        android:paddingTop="8dp">
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/fref_bg_separator" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="56dp"
+                            android:layout_marginTop="4dp"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:baselineAligned="false"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/fref_add_all_bonus"
+                                    android:textColor="@color/fref_text_sec"
+                                    android:textSize="13dp" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:baselineAligned="false"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/fref_currency_rub_add_bonus"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:includeFontPadding="false"
+                                        android:textColor="@color/fref_color_add_bunus"
+                                        android:textSize="34dp" />
+
+                                    <TextView
+                                        android:id="@+id/fref_currency_kop_add_bonus"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="top"
+                                        android:layout_marginLeft="2dp"
+                                        android:layout_marginStart="2dp"
+                                        android:layout_marginTop="3dp"
+                                        android:includeFontPadding="false"
+                                        android:textColor="@color/fref_color_add_bunus"
+                                        android:textSize="20dp" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:baselineAligned="false"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/fref_remove_bonus"
+                                    android:textColor="@color/fref_text_sec"
+                                    android:textSize="13dp" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:baselineAligned="false"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/fref_currency_rub_remove_bonus"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:includeFontPadding="false"
+                                        android:textColor="@color/fref_color_remove_bonus"
+                                        android:textSize="34dp" />
+
+                                    <TextView
+                                        android:id="@+id/fref_currency_kop_remove_bonus"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="top"
+                                        android:layout_marginLeft="2dp"
+                                        android:layout_marginStart="2dp"
+                                        android:layout_marginTop="3dp"
+                                        android:includeFontPadding="false"
+                                        android:textColor="@color/fref_color_remove_bonus"
+                                        android:textSize="20dp" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/frefb_empty_page"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="32dp"
+                    android:background="@color/text_white"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        app:srcCompat="@drawable/ic_bonus_empty" />
+
+                    <TextView
+                        style="@style/CondensedRegularText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/message_empty_bonus"
+                        android:textAllCaps="true"
+                        android:textColor="@color/fref_bg_plus"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        style="@style/RegularTextRoboto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingLeft="25dp"
+                        android:paddingRight="25dp"
+                        android:text="@string/fref_text_empty_bonus"
+                        android:textColor="@color/fref_color_period_value"
+                        android:textSize="13dp" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingBottom="25dp"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/fref_bg_separator" />
+
+                <LinearLayout
+                    android:id="@+id/fref_cont_ref_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/fref_title_ref_code"
+                        android:textColor="@color/fref_text_sec"
+                        android:textSize="13dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <FrameLayout
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/fref_bg_stroke">
+
+                            <TextView
+                                android:id="@+id/fref_copy"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:textSize="25dp" />
+
+                        </FrameLayout>
+                        <ImageView
+                            android:padding="8dp"
+                            app:srcCompat="@drawable/ic_qr_code"
+                            android:id="@+id/createQRCodeRef"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/bg_gr_scanner_button_jelt" />
+ <!--                       <FrameLayout
+                            android:id="@+id/createQRCodeRef"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/fref_bg_krug">
+
+                            <TextView
+                                style="@style/CondensedBoldText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="@string/char_help"
+                                android:textAllCaps="true"
+                                android:textColor="@color/fref_color_help"
+                                android:textSize="18dp" />
+                        </FrameLayout>-->
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <FrameLayout
+                    android:id="@+id/fref_ext_send"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="16dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fref_frends"
+                        android:textColor="@color/fref_text_sec"
+                        android:textSize="13dp" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginTop="31dp"
+                        app:srcCompat="@drawable/ic_fref_primary_frends" />
+
+                    <TextView
+                        android:id="@+id/fref_cound_frends"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="26dp"
+                        android:layout_marginTop="13dp"
+                        android:textColor="@color/fref_color_segment_two"
+                        android:textSize="30dp" />
+
+                    <LinearLayout
+                        android:id="@+id/fref_send_share"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_gravity="bottom|right"
+                        android:background="@drawable/fref_bg_chare"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_friends" />
+
+                        <TextView
+                            style="@style/CondensedBoldText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12dp"
+                            android:layout_weight="1"
+                            android:text="@string/fref_send_frends"
+                            android:textAllCaps="true"
+                            android:textColor="@color/text_white"
+                            android:textSize="18dp" />
+                    </LinearLayout>
+                </FrameLayout>
+
+                <LinearLayout
+                    android:id="@+id/fref_basic_cont"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginBottom="48dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="40dp"
+                        android:paddingRight="50dp" />
+
+                    <LinearLayout
+                        android:id="@+id/fref_basic_send_share"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:background="@drawable/fref_bg_chare"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_friends" />
+
+                        <TextView
+                            style="@style/CondensedBoldText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="-24dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/fref_send_frends"
+                            android:textAllCaps="true"
+                            android:textColor="@color/text_white"
+                            android:textSize="18dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/fref_cont_none"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingBottom="25dp"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:id="@+id/fref_cont_base_bonus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fref_current_balans"
+                    android:textColor="@color/fref_text_sec"
+                    android:textSize="13dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="23dp"
+                        android:layout_height="28dp"
+                        android:layout_marginTop="42dp"
+                        app:srcCompat="@drawable/ic_bonus_icon" />
+
+                    <TextView
+                        android:id="@+id/fref_currency_rub_base_bonus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/fref_color_segment_two"
+                        android:textSize="75dp" />
+
+                    <TextView
+                        android:id="@+id/fref_currency_kop_base_bonus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="9dp"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/fref_color_segment_two"
+                        android:textSize="24dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical" />
+
+            <LinearLayout
+                android:id="@+id/fref_none_send_share"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/fref_bg_chare"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_friends" />
+
+                <TextView
+                    style="@style/CondensedBoldText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="-24dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/fref_send_frends"
+                    android:textAllCaps="true"
+                    android:textColor="@color/text_white"
+                    android:textSize="18dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+</FrameLayout>

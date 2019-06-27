@@ -1,0 +1,82 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/text_white"
+    android:orientation="vertical"
+    android:paddingBottom="24dp"
+    android:paddingLeft="24dp"
+    android:paddingRight="24dp">
+
+
+    <ImageView
+        android:id="@+id/bask"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="-4dp"
+        android:layout_marginTop="4dp"
+        android:paddingBottom="12dp"
+        android:paddingRight="24dp"
+        android:paddingTop="12dp"
+        app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/LightText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-4dp"
+            android:layout_weight="1"
+            android:text="@string/title_set_comment_order"
+            android:textColor="@color/colorPrimary"
+            android:textSize="28dp" />
+
+        <ImageView
+            android:id="@+id/ic_clear_comment"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:paddingLeft="24dp"
+            android:paddingRight="0dp"
+            app:srcCompat="@drawable/ic_close_white" />
+    </LinearLayout>
+
+
+    <EditText
+        android:id="@+id/edit_comment"
+        style="@style/LightText.profileTextEdit.adressFeed"
+        android:layout_marginTop="10dp"
+        android:hint="@string/comment_text"
+        android:inputType="textMultiLine" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorPrimary" />
+
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/send_comment"
+        style="@style/LightText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="@string/continue_button"
+        android:textColor="@color/colorPrimary"
+        android:textSize="28dp" />
+</LinearLayout>

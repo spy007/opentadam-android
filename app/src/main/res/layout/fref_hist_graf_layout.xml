@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fref_hist_graf"
+    android:layout_width="match_parent"
+    android:layout_height="121dp"
+    android:layout_marginTop="86dp"
+    android:orientation="vertical"
+    android:paddingLeft="2dp"
+    android:paddingRight="26dp"
+    android:paddingEnd="26dp"
+    android:paddingStart="2dp">
+
+    <FrameLayout
+        android:id="@+id/fref_hist_graf_control"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/fref_hist_graf_plus"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="top" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:background="@color/fref_bg_separator" />
+
+        <FrameLayout
+            android:id="@+id/fref_hist_graf_minus"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="bottom" />
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/sub_menu_button"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:alpha="0.9"
+        android:background="@drawable/rectangle">
+
+        <LinearLayout
+            android:id="@+id/heder_cont"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:id="@+id/heder_list_cont"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/cont_start_adress"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_marginBottom="-4dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="24dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/s_m_b_tipe_adress"
+                                style="@style/CondensedBoldText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/adress_start"
+                                android:textAllCaps="true"
+                                android:textColor="@color/text_white"
+                                android:textSize="11dp" />
+
+                            <TextView
+                                android:id="@+id/sity_adress0"
+                                style="@style/CondensedBoldText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="8dp"
+                                android:textAllCaps="true"
+                                android:textColor="@color/text_default_color"
+                                android:textSize="11dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_marginTop="2dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="16dp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/adress_pos"
+                                style="@style/CondensedBoldText"
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:layout_marginTop="-3dp"
+                                android:background="@drawable/bg_item_num_adress"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="4dp"
+                                android:text="1"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="11dp" />
+
+                            <FrameLayout
+                                android:id="@+id/fr_cont_animate_adress0"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginRight="6dp"
+                                android:layout_marginTop="6dp"
+                                android:layout_weight="1">
+
+                                <View
+                                    android:id="@+id/fra_animate0"
+                                    android:layout_width="12dp"
+                                    android:layout_height="12dp"
+                                    android:background="@drawable/fr_progress_adress" />
+
+                                <View
+                                    android:id="@+id/fra_animate1"
+                                    android:layout_width="12dp"
+                                    android:layout_height="12dp"
+                                    android:layout_marginLeft="18dp"
+                                    android:background="@drawable/fr_progress_adress" />
+
+                                <View
+                                    android:id="@+id/fra_animate2"
+                                    android:layout_width="12dp"
+                                    android:layout_height="12dp"
+                                    android:layout_marginLeft="36dp"
+                                    android:background="@drawable/fr_progress_adress" />
+                            </FrameLayout>
+
+                            <TextView
+                                android:id="@+id/adress_value_item0"
+                                style="@style/RegularTextRoboto"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginRight="6dp"
+                                android:layout_marginTop="-2dp"
+                                android:layout_weight="1"
+                                android:ellipsize="end"
+                                android:gravity="top"
+                                android:lineSpacingMultiplier="0.9"
+                                android:maxLines="2"
+                                android:minHeight="28dp"
+                                android:singleLine="false"
+                                android:tag="one"
+                                android:textColor="@color/text_default_color"
+                                android:textSize="18dp" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/adress_dop_info"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:layout_marginLeft="24dp"
+                            android:layout_marginRight="0dp"
+                            android:layout_marginTop="-8dp"
+                            android:textSize="16dp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:background="@drawable/bg_short"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:textColor="@color/text_white"
+                        android:gravity="center"
+                        android:paddingRight="12dp"
+                        android:paddingLeft="12dp"
+                        android:id="@+id/set_porch"
+                        android:textSize="10dp"
+                        android:includeFontPadding="false"
+                        style="@style/CondensedBoldText"
+                        android:text="@string/fr_porh"
+                        android:textAllCaps="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="22dp" />
+
+<!--                    <ImageView
+                        android:id="@+id/set_porch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        app:srcCompat="@drawable/ic_door" />-->
+
+                </LinearLayout>
+
+
+                <FrameLayout
+                    android:id="@+id/fr_separator_adress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginStart="24dp">
+
+                    <include layout="@layout/separator_default" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:id="@+id/fr_cont_adress1"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="24dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tipe_adress1"
+                                style="@style/CondensedBoldText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/adress_to"
+                                android:textAllCaps="true"
+                                android:textColor="@color/text_white"
+                                android:textSize="11dp"
+                                android:visibility="invisible" />
+
+                            <TextView
+                                android:id="@+id/sity_adress1"
+                                style="@style/CondensedBoldText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="8dp"
+                                android:textAllCaps="true"
+                                android:textColor="@color/text_default_color"
+                                android:textSize="11dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/cont_adress1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="16dp"
+                            android:gravity="top"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/adress_pos1"
+                                style="@style/CondensedBoldText"
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:layout_marginTop="-6dp"
+                                android:background="@drawable/bg_item_num_adress"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="4dp"
+                                android:text="2"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="11dp" />
+
+                            <TextView
+                                android:id="@+id/adress_value_item1"
+                                style="@style/RegularTextRoboto"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="-4dp"
+                                android:layout_weight="1"
+                                android:lineSpacingMultiplier="0.9"
+                                android:maxLines="2"
+                                android:text="@string/to_vojge"
+                                android:textAlignment="inherit"
+                                android:textColor="@color/text_white"
+                                android:textSize="18dp" />
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/ic_plus_button"
+                        android:layout_width="36dp"
+                        android:layout_height="48dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginTop="12dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:paddingBottom="24dp"
+                        android:paddingEnd="0dp"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="0dp"
+                        android:paddingStart="12dp"
+                        android:paddingTop="0dp"
+                        android:visibility="gone"
+                        app:srcCompat="@drawable/ic_plus_while" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp">
+
+                <include layout="@layout/separator_default" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/frmb_cont_comment_pay"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="24dp"
+                android:paddingRight="16dp">
+
+                <LinearLayout
+                    android:id="@+id/frmb_comment_options"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="12dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/frmb_comment"
+                        style="@style/RegularTextRoboto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-5dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="@string/frmb_comment_value"
+                        android:textAlignment="inherit"
+                        android:textColor="@color/text_default_color"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/set_options"
+                        style="@style/RegularTextRoboto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-4dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textAlignment="inherit"
+                        android:textColor="@color/text_default_color"
+                        android:textSize="16dp"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/frmb_cont_pay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/CondensedBoldText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="11dp"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/frmb_cont_pay_title_pay"
+                        android:textAllCaps="true"
+                        android:textColor="@color/text_white" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="-2dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/frmb_pay_ic"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginTop="-2dp" />
+
+                        <TextView
+                            android:id="@+id/frmb_pay_name"
+                            style="@style/RegularTextRoboto"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginTop="-2dp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:maxWidth="130dp"
+                            android:textSize="16dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fr_cont_time"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginStart="24dp">
+
+                    <include layout="@layout/separator_default" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingRight="16dp">
+
+                        <LinearLayout
+                            android:id="@+id/fmb_cont_time_preorder"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/adress_sub_value_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="-3dp"
+                                android:textSize="18dp" />
+
+                            <TextView
+                                android:id="@+id/adress_value_time"
+                                style="@style/BoldText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="-3dp"
+                                android:textSize="24dp" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/fr_cont_time_close"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:paddingBottom="12dp"
+                            android:paddingLeft="24dp"
+                            android:paddingTop="12dp"
+                            app:srcCompat="@drawable/ic_close_white" />
+
+                    </LinearLayout>
+
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </FrameLayout>
+
+
+    <LinearLayout
+        android:id="@+id/body_cont"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ccffffff"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/fr_optin_list_min"
+            android:layout_width="match_parent"
+            android:layout_height="64dp">
+
+            <com.opentadam.ui.creating_an_order.PagerContainer
+                android:id="@+id/small_pager_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="invisible">
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/overlap_pager"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center" />
+
+                <FrameLayout
+                    android:id="@+id/fr_lines_def"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="4dp"
+                        android:layout_gravity="top"
+                        android:background="@color/colorPrimary" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="4dp"
+                        android:layout_gravity="bottom"
+                        android:background="@color/colorPrimary" />
+                </FrameLayout>
+
+            </com.opentadam.ui.creating_an_order.PagerContainer>
+
+            <LinearLayout
+                android:id="@+id/fr_cont_min_size"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="invisible" />
+
+
+        </FrameLayout>
+
+        <include layout="@layout/separator_default" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="63dp"
+        android:background="#BFFFFFFF" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#BFFFFFFF" />
+
+</LinearLayout>

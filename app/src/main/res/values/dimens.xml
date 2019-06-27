@@ -1,0 +1,6 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <string name="weight_key_board" tools:ignore="MissingTranslation">"0"</string>
+    <dimen name="overlap_pager_margin">-28dp</dimen>
+</resources>

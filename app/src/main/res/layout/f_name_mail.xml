@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/fnm_bask"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="4dp"
+        android:paddingBottom="12dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="4dp"
+        android:paddingTop="12dp"
+        app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp">
+
+        <TextView
+            android:id="@+id/fnm_title"
+            style="@style/LightText"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="28dp" />
+
+        <TextView
+            android:id="@+id/fnm_sub_title"
+            style="@style/LightText"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:textSize="16dp" />
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/fnm_edit"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                style="@style/LightText.profileTextEdit"
+                android:layout_marginTop="10dp"
+                android:textSize="24dp">
+
+                <requestFocus />
+            </EditText>
+
+            <ImageView
+                android:id="@+id/fnm_edit_close"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:paddingTop="24dp"
+                android:paddingLeft="24dp"
+                app:srcCompat="@drawable/ic_close_white_black" />
+        </LinearLayout>
+
+
+        <View
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimary" />
+
+        <TextView
+            android:layout_marginTop="18dp"
+            android:id="@+id/fnm_set_memory"
+            style="@style/LightText"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="40dp"
+            android:text="@string/fnm_set_text"
+            android:textColor="@color/colorPrimary"
+            android:textSize="28dp" />
+    </LinearLayout>
+
+</LinearLayout>

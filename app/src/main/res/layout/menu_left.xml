@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/nav_background"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/cont_button_reg"
+        android:layout_width="match_parent"
+        android:layout_height="152dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:visibility="gone">
+
+        <TextView
+            style="@style/CondensedBoldText"
+            android:layout_width="match_parent"
+            android:layout_height="76dp"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_button_gradient"
+            android:gravity="center"
+            android:text="@string/to_reg_button_value"
+            android:textAllCaps="true"
+            android:textColor="@color/text_white"
+            android:textSize="24dp" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/cont_profile"
+        android:layout_width="match_parent"
+        android:layout_height="152dp"
+        android:paddingLeft="24dp"
+        android:visibility="gone">
+
+        <FrameLayout
+            android:layout_width="81dp"
+            android:layout_height="81dp"
+            android:layout_gravity="left|center">
+
+            <ImageView
+                android:id="@+id/profil_pfoto_dis"
+                android:layout_width="77dp"
+                android:layout_height="77dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="-2dp"
+                android:background="@drawable/bg_profil_pfoto_dis"
+                android:padding="15dp"
+                app:srcCompat="@drawable/ic_verified_user_white" />
+
+            <com.pkmmte.view.CircularImageView
+                android:id="@+id/profil_pfoto"
+                android:layout_width="81dp"
+                android:layout_height="81dp"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                app:border="true"
+                app:border_color="#FFFFFF"
+                app:border_width="2dp" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center"
+            android:layout_marginLeft="97dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/profil_name"
+                style="@style/CondensedRegularText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingMultiplier="0.8"
+                android:textColor="@color/text_white"
+                android:textSize="18dp" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/upd_google"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/bg_item_upd"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_file_download_while_24dp" />
+
+        <TextView
+            android:id="@+id/item_upd_text"
+            style="@style/LightText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:textColor="@color/text_white"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/menu_cont"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
+
+</LinearLayout>

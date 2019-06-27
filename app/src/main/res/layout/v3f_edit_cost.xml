@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginRight="24dp"
+    android:orientation="vertical"
+    android:paddingLeft="24dp">
+
+    <ImageView
+        android:id="@+id/bask"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="-4dp"
+        android:layout_marginTop="8dp"
+        android:paddingBottom="12dp"
+        android:paddingRight="24dp"
+        android:paddingTop="12dp"
+        app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
+
+    <TextView
+        style="@style/LightText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/title_edit_summ"
+        android:textColor="@color/colorPrimary"
+        android:textSize="28dp" />
+
+    <TextView
+        style="@style/RegularTextRoboto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/info_text_edit_cost"
+        android:textSize="16dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/route_cost_value_prefix"
+            style="@style/BoldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="6dp"
+            android:layout_marginTop="6dp"
+            android:text="@string/prefix_summ"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16dp" />
+
+        <include layout="@layout/v2f_cost_view" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp">
+
+        <ImageView
+            android:id="@+id/ic_minus"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="left"
+            android:background="@drawable/bg_krug_brend_lenght"
+            android:padding="12dp"
+            app:srcCompat="@drawable/v3_ic_minus_brend" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/add_route_cost_value"
+                style="@style/BoldText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAllCaps="true"
+                android:textColor="@color/text_color"
+                android:textSize="32dp" />
+
+            <TextView
+                android:id="@+id/add_route_cost_value_dec"
+                style="@style/BoldText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginTop="-5dp"
+                android:textAllCaps="true"
+                android:textColor="@color/text_color"
+                android:textSize="18dp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/add_currency_short"
+                style="@style/LightText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginTop="-5dp"
+                android:textAllCaps="true"
+                android:textColor="@color/text_color"
+                android:textSize="18dp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ic_plus"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="right"
+            android:background="@drawable/bg_krug_brend_lenght"
+            android:padding="12dp"
+            app:srcCompat="@drawable/ic_plus_brend" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/minus_step"
+            style="@style/CondensedBoldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:gravity="center"
+            android:minWidth="48dp"
+            android:textAllCaps="true"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/plus_step"
+            style="@style/CondensedBoldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:gravity="center"
+            android:minWidth="48dp"
+            android:textAllCaps="true"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18dp" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="32dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/button_def_cost"
+            style="@style/CondensedBoldText"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_add_def_cost"
+            android:gravity="center"
+            android:text="@string/set_def_cost"
+            android:textAllCaps="true"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14dp" />
+
+        <View
+            android:layout_width="8dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/button_add_cost"
+            style="@style/CondensedBoldText"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_add_cost"
+            android:gravity="center"
+            android:text="@string/edit_cost"
+            android:textAllCaps="true"
+            android:textColor="@color/text_white"
+            android:textSize="14dp" />
+    </LinearLayout>
+</LinearLayout>

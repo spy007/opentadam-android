@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Color One-->
+    <color name="colorPrimary">#4F808B</color>
+    <!--Color Two-->
+    <color name="colorTwo">#85A6BF</color>
+    <!--Color One. копия главного, необходимо что бы мат. дез. ставил дефолтным в шаблонах полей ввода, инпутах итд.-->
+    <color name="colorAccent">#4F808B</color>
+    <!--Color One. 90% процентов прозрачность-->
+    <color name="colorPrimary_90">#E64F808B</color>
+    <!--Color Two. 90% процентов прозрачность-->
+    <color name="colorTwo_90">#E685A6BF</color>
+</resources>

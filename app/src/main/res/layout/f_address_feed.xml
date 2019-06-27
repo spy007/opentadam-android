@@ -1,0 +1,250 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/parent_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/v2_bg_heder_100"
+        android:minHeight="120dp"
+        android:orientation="vertical"
+        android:paddingBottom="14dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/ic_bask"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:paddingBottom="12dp"
+                android:paddingLeft="18dp"
+                android:paddingRight="4dp"
+                android:paddingTop="12dp"
+                app:srcCompat="@drawable/ic_arrow_back_white" />
+
+            <TextView
+                android:id="@+id/title_template"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="32dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="@string/start_adress_route"
+                android:textColor="@color/text_white"
+                android:textSize="18dp" />
+
+
+            <TextView
+                android:id="@+id/private_redactor_done_button"
+                style="@style/CondensedBoldText"
+                android:layout_width="72dp"
+                android:layout_height="32dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/bg_button_my_ok"
+                android:gravity="center"
+                android:text="@string/continue_button"
+                android:textAllCaps="true"
+                android:textColor="@color/colorPrimary"
+                android:textSize="12dp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp">
+
+            <TextView
+                android:id="@+id/adress_value"
+                style="@style/LightText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/text_white"
+                android:textSize="28dp" />
+
+            <ImageView
+                android:id="@+id/ic_maps"
+                android:layout_width="56sp"
+                android:layout_height="56sp"
+                android:layout_gravity="right"
+                android:paddingBottom="16sp"
+                android:paddingLeft="18sp"
+                android:paddingRight="18sp"
+                android:paddingTop="16sp"
+                android:visibility="gone"
+                app:srcCompat="@drawable/map_pin" />
+
+            <ImageView
+                android:id="@+id/ic_clear_edit"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="24dp"
+                android:paddingTop="14dp"
+                app:srcCompat="@drawable/ic_search_while_48" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/cont_private"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+
+        android:orientation="vertical"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/private_redactor_name_text"
+            style="@style/CondensedBoldText.ProfileInfoText"
+            android:layout_marginTop="0dp"
+            android:text="@string/my_point_name"
+            android:visibility="invisible" />
+
+        <EditText
+            android:id="@+id/private_redactor_name"
+            style="@style/LightText.profileTextEdit.adressFeed"
+            android:hint="@string/mame_hint"
+            android:imeOptions="actionNext" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimary" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text_flat"
+                style="@style/CondensedBoldText.ProfileInfoText"
+                android:layout_marginTop="0dp"
+                android:text="@string/number_flat"
+                android:visibility="invisible" />
+
+            <EditText
+                android:id="@+id/edit_flat"
+                style="@style/LightText.profileTextEdit.adressFeed"
+                android:hint="@string/number_flat"
+                android:imeOptions="actionNext"
+                android:inputType="number" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorPrimary" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text_porch"
+                style="@style/CondensedBoldText.ProfileInfoText"
+                android:layout_marginTop="0dp"
+                android:text="@string/number_porcht"
+                android:visibility="invisible" />
+
+            <EditText
+                android:id="@+id/edit_porcht"
+                style="@style/LightText.profileTextEdit.adressFeed"
+                android:hint="@string/number_porcht"
+                android:imeOptions="actionNext"
+                android:inputType="number" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorPrimary" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:orientation="vertical"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp">
+
+        <TextView
+            android:id="@+id/text_dop_info"
+            style="@style/CondensedBoldText.ProfileInfoText"
+            android:layout_marginTop="0dp"
+            android:text="@string/comment_text_dop"
+            android:visibility="invisible" />
+
+        <EditText
+            android:id="@+id/redactor_dop_info"
+            style="@style/LightText.profileTextEdit.adressFeed"
+            android:hint="@string/hint_dop_info" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="bottom"
+            android:background="@color/colorPrimary" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/button_add_private_adress"
+        style="@style/CondensedBoldText"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bg_button_status_info"
+        android:gravity="center"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:text="@string/text_button_add_my_point"
+        android:textAllCaps="true"
+        android:textColor="@color/text_white"
+        android:textSize="12dp" />
+
+    <TextView
+        android:id="@+id/hide_cursor_text"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>
