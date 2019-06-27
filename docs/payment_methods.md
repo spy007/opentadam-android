@@ -6,7 +6,7 @@
 В случае использования без авторизации возвращает только один способ оплаты - наличные.
 
 #### HTTP Заголовки
-* * **Content-Type**: `string` application/json; charset=utf-8
+* **Content-Type**: `string` application/json; charset=utf-8
 * [Hive-Profile](http_headers.md)
 * [X-Hive-GPS-Position](http_headers.md)
 
