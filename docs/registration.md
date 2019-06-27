@@ -1,17 +1,19 @@
 # Регистрация
 
+## Запрос на регистрацию
+
 `POST /api/client/mobile/1.0/registration/submit`
 
-## Заголовки
+### Заголовки
 
 Hive-Profile, X-Hive-GPS-Position
 
-## Тело запроса
+### Тело запроса
 
 JSON объект [SubmitRequest](#registration-submit-fields)
 
 <a name="registration-submit-fields"></a>
-### Поля JSON объекта **SubmitRequest**
+#### Поля JSON объекта **SubmitRequest**
 
 Имя | Тип | Обязательный | Описание
 --- | --- | --- | ---
@@ -21,7 +23,7 @@ info | Объект [ClientInfo](#ClientInfo-fields) | нет | Информац
 referralCode | string | нет | Реферальный код
 
 <a name="ConfirmationType-enum"></a>
-### Значения параметра ConfirmationType
+#### Значения параметра ConfirmationType
 
 Акроним | Описание
 --- | ---
@@ -29,7 +31,7 @@ sms | По СМС
 voice | По СМС
 
 <a name="ClientInfo-fields"></a>
-### Описание ClientInfo
+#### Описание ClientInfo
 
 Имя | Тип | Обязательный | Описание
 --- | --- | --- | ---
@@ -40,14 +42,14 @@ gender | number [Gender](#Gender-enum) |	нет | Пол
 birthDate |	string OffsetDateTime | нет | Дата рождения
 
 <a name="Gender-enum"></a>
-### Значения параметра Gender
+#### Значения параметра Gender
 
 Акроним | Описание
 --- | ---
 0 | Мужской
 1 | Женский
 
-## Ответ
+### Ответ
 
 В теле ответа передается JSON оъект Submitted
 
