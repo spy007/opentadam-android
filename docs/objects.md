@@ -1,7 +1,13 @@
 # Описание объектов
 
 * [PaymentMethod](#PaymentMethod-fields)
+  * [PaymentMethodKind](#PaymentMethodKind-enum)
 * [GpsPosition](#GpsPosition-fields)
+* [Address](#Address-fields)
+  * [AddressComponent](#AddressComponent-fields)
+  * [AddressTypes](#AddressTypes-fields)
+  * [AddressLevel](#AddressLevel-enum)
+* [OffsetDateTime](#OffsetDateTime-item)
 
 <a name="PaymentMethod-fields"></a>
 ## PaymentMethod
@@ -121,3 +127,15 @@ aliasType | number | нет | Тип алиаса (тип POI)
 }
 ```
 
+<a name="OffsetDateTime-item"></a>
+## OffsetDateTime
+
+Имя | Тип | Описание
+---- | --- | --------
+OffsetDateTime | string | Формат: `YYYY-MM-DDThh:mm:ss±hh:mm`
+LocalDateTime | string | Формат: `YYYY-MM-DDThh:mm:ss`
+LocalDate | string | Формат: `YYYY-MM-DD`
+Duration | string | Формат: `PnYnMnDTnHnMnS`, Раздел в википедии: [ISO 8601: Durations](https://en.wikipedia.org/wiki/ISO_8601#Durations) Если `n`равно нулю, указывать не обязательно. **Пример:** `PT35M13.106S`
+
+
+Все форматы соответствуют стандарту [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601).
