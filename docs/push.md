@@ -4,7 +4,7 @@
 
 Требуется [Авторизация](hmac.md)
 #### HTTP Заголовки
-* **Content-Type**: application/json; charset=utf-8
+* **Content-Type**: `string` application/json; charset=utf-8
 
 #### Тело запроса
 * JSON объект [FsmInfo](#FsmInfo-fields)
@@ -19,7 +19,7 @@ token | string | да | FCM ключ
 ### Ответ
 
 #### HTTP Заголовки
-* **Content-Type**: application/json; charset=utf-8
+* **Content-Type**: `string` application/json; charset=utf-8
 
 #### Тело ответа
 Пустой объект.
