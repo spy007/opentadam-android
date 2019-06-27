@@ -68,6 +68,7 @@ name | string | да | Наименование
 pointType | number | нет | Тип точки
 aliasType | number | нет | Тип алиаса (тип POI)
 
+<a name="AddressLevel-enum"></a>
 ### Акроним AddressLevel
 
 Акроним | Описание
