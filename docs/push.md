@@ -16,4 +16,5 @@ token | string | да | FCM ключ
 ### Ответ
 
 **Content-Type**: application/json; charset=utf-8
+
 **Body**: Пустой объект.
