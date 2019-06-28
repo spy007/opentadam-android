@@ -28,8 +28,8 @@ length | number | нет | Максимальный размер ответа (�
 --- | --- | --- | ---
 id | number | true | Идентификатор заказа
 state | number [OrderState](#OrderState-enum) | да | Статус заказа
-route | array object Address | да | Маршрут заказа
-time | string OffsetDateTime | нет | Время завершения заказа
+route | массив объектов [Address](objects.md#Address-fields) | да | Маршрут заказа
+time | string [OffsetDateTime](objects.md#OffsetDateTime-item) | нет | Время завершения заказа
 
 <a name="OrderState-enum"></a>
 #### OrderState
