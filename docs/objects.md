@@ -53,6 +53,15 @@ lon | number | да | Долгота
 }
 ```
 
+<a name="ClientAddress-fields"></a>
+## ClientAddress
+Имя | Тип | Обязательное | Описание
+--- | --- | --- | ---
+address | объект Address | да | Адрес
+entrance | string | нет | Подъезд
+flat | string | нет | Квартира
+comment | string | нет | Комментарий
+
 <a name="Address-fields"></a>
 ## Address
 
