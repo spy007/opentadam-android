@@ -17,7 +17,7 @@
 * JSON ответ [Result](#Result-fields)
 
 <a name="Result-fields"></a>
-## Result
+#### Result
 Имя | Тип | Обязательное | Описание
 --- | --- | --- | ---
 route | массив объектов [Address](objects.md#Address-fields) | да | Маршрут заказа
@@ -29,7 +29,7 @@ toPay | number | да | К оплате
 
 
 <a name="ResultCheckItem-fields"></a>
-## ResultCheckItem
+#### ResultCheckItem
 Имя | Тип | Обязательное | Описание
 --- | --- | --- | ---
 title | string | да | Наименование
