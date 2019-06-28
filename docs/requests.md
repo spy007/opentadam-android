@@ -33,6 +33,8 @@
   * [Редактирование способа оплаты в заказе](order_payment_method.md)
   * [Уведомление водителя о том, что клиент выходит](order_coming.md)
   * [Связь с водителем](order_request_driver_call.md)
+* [Связь с диспетчером](dispatcher_call.md)
+
   
   
 
