@@ -32,7 +32,7 @@ needsProlongation | boolean | true | Необходимо продлить за�
 comment | string | false | Комментарий
 distance | number | false | Расстояние
 cost | object Cost | true | Стоимость
-executionTime | string Duration | false | Продолжительность поездки (только для статуса 4)
+executionTime | string [Duration](objects.md#OffsetDateTime-item) | false | Продолжительность поездки (только для статуса 4)
 usedBonuses | number | false | Количество бонусов для использования в качестве оплаты
 paymentMethod | объект [PaymentMethod](objects.md#PaymentMethod-fields) | false | Способ оплаты
 costFixAllowed | boolean | true | Разрешена ли фиксация стоимости заказа
