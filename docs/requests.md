@@ -40,6 +40,7 @@
   * [Регистрация в программе лояльности](loyalty_program_reg.md)
   * [Доступные бонусы](bonuses.md)
   * [Список транзакций по дням](transactions_by_day.md)
+  * [Список транзакций](transactions_seq.md)
   
   
 
