@@ -35,7 +35,7 @@
   * [Связь с водителем](order_request_driver_call.md)
   * [Отмена заказа](order_delete.md)
 * [Связь с диспетчером](dispatcher_call.md)
-
+* [История поездок](history.md)
   
   
 
