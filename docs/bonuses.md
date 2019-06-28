@@ -17,7 +17,7 @@
 * JSON объект [Bonuses](#Bonuses-fields)
 
 <a name="Bonuses-fields"></a>
-## Bonuses
+#### Bonuses
 
 Имя | Тип | Обязательное | Описание
 --- | --- | --- | ---
@@ -26,7 +26,7 @@ capabilities | Объект [Capabilities](#Capabilities-fields) | нет | Во
 
 
 <a name="Capabilities-fields"></a>
-## Capabilities
+#### Capabilities
 
 Имя | Тип | Обязательное | Описание
 --- | --- | --- | ---
@@ -37,7 +37,7 @@ options | array number | Если type=options | Варианты сумм
 
 
 <a name="CapabilitiesType-enum"></a>
-### Акроним CapabilitiesType
+#### Акроним CapabilitiesType
 
 Акроним | Описание
 --- | ---
