@@ -36,6 +36,7 @@
   * [Отмена заказа](order_delete.md)
 * [Связь с диспетчером](dispatcher_call.md)
 * [История поездок](history.md)
+* [Добавление банковской карты](payment_methods_add.md)
   
   
 
