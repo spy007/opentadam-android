@@ -1,5 +1,7 @@
 # Доступные бонусы
 
+`GET /api/client/mobile/2.1/bonuses`
+
 Требуется [Авторизация](hmac.md)
 #### HTTP Заголовки
 * **Content-Type**: `string` application/json; charset=utf-8
