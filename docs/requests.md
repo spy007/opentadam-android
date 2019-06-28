@@ -41,6 +41,7 @@
   * [Доступные бонусы](bonuses.md)
   * [Список транзакций по дням](transactions_by_day.md)
   * [Список транзакций](transactions_seq.md)
+  * [Список транзакций, детальный](transactions_seq_detailed.md)
   
   
 
