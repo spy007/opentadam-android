@@ -1,14 +1,4 @@
-# OpenTadam Mobile API
-
-OpenTadam Mobile API - это инструментарий для интеграции мобильного приложения с сервером [OpenTadam!](https://opentadam.com)
-
-<a name="content"></a>
-## Содержание
-
-<a name="general"></a>
-## Общая информация
-
-* [Общая информация](docs/general.md)
-* [Запросы](docs/requests.md)
+# OpenTadam Android app
 
 
+[Документаци по API для мобильного приложения](https://github.com/opentadam/opentadam-mobile-api/blob/master/README.md)
