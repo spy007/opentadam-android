@@ -6,6 +6,7 @@
   * [Повторная отправка кода подтверждения](registration.md#resubmit-item)
   * [Подтверждение регистрации](registration.md#confirm-item)
 * [HMAC авторизация](hmac.md)
+* [Справочник стран](countries.md)
 * [Регистрация ключа для PUSH уведомлений](push.md)
 * [Ближайшие водители](drivers.md)
 * [Геокодинг, поиск адресов](geocoding.md)
