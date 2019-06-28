@@ -11,6 +11,7 @@
 Запрос имеет смысл, только если тип программы лояльности – `ext-bonus-referral-vip`.
 
 ## Ответ
+Возвращает список транзакций за последние 30 дней
 
 #### HTTP Заголовки
 * **Content-Type**: `string` application/json; charset=utf-8
