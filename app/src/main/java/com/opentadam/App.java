@@ -25,6 +25,8 @@ import android.preference.PreferenceManager;
 import android.support.multidex.MultiDex;
 import android.support.v7.app.AppCompatDelegate;
 
+import com.contactskotlin.data.di.AppComponent;
+import com.contactskotlin.data.di.DaggerAppComponent;
 import com.crashlytics.android.Crashlytics;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
@@ -43,6 +45,7 @@ import net.danlew.android.joda.JodaTimeAndroid;
 import java.util.Locale;
 
 import io.fabric.sdk.android.Fabric;
+import timber.log.Timber;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 /*upd commit*/
@@ -60,6 +63,7 @@ public class App extends android.app.Application {
     private Tracker mTracker;
     private DefLocalePhone defLocalePhone;
     public HashBC hashBC;
+    public static AppComponent appComponent;
 
     public App() {
         hashBC = new HashBC();
@@ -120,6 +124,11 @@ public class App extends android.app.Application {
                 .setDefaultSystemLocal(getResources().getString(R.string.dc_system_local))
                 .setDefaultPhoneLocal(aDefault.getDisplayLanguage())
                 .setDefaultCountryLocal(aDefault.getLanguage());
+
+        initializeDagger();
+
+        Timber.plant(new Timber.DebugTree());
+
         super.onCreate();
 
         if (App.app.hashBC.keyAppMetrica != null) initYandexMetrica(App.app.hashBC.keyAppMetrica);
@@ -245,4 +254,7 @@ public class App extends android.app.Application {
         return mTracker;
     }
 
+    private static void initializeDagger() {
+        appComponent = DaggerAppComponent.builder().build();
+    }
 }
