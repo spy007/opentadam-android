@@ -1,5 +1,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'io.fabric'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
@@ -71,6 +74,16 @@ dependencies {
     implementation 'com.android.support:multidex:1.0.3'
     // считать QR
     implementation 'me.dm7.barcodescanner:zxing:1.9.8'
+
+    // Moxy
+    implementation "com.arello-mobile:moxy:$moxy_version"
+    implementation "com.arello-mobile:moxy-app-compat:$moxy_version"
+    kapt "com.arello-mobile:moxy-compiler:$moxy_version"
+
+    // Timber
+    implementation "com.jakewharton.timber:timber:4.7.1"
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
 
 def appVersionCode = Integer.valueOf(System.env.VERSION_CODE ?: 99999)
@@ -99,12 +112,12 @@ android {
     }
 
     compileSdkVersion 27
-    buildToolsVersion '27.0.3'
+    buildToolsVersion '28.0.3'
     useLibrary 'org.apache.http.legacy'
 
 
     defaultConfig {
-        manifestPlaceholders = [google_maps_key: "default_key", fabricApiKey: fabricApiKey,"appId":"disabled"]
+        manifestPlaceholders = [google_maps_key: "default_key", fabricApiKey: fabricApiKey, "appId": "disabled"]
         resValue "string", "appName", 'appName'
         minSdkVersion 15
         targetSdkVersion 27
@@ -177,11 +190,11 @@ android {
         // текущая версия приложения
         buildConfigField "int", "currentCodeGoogleVersion", "0"
         // Настройки PUSH уведомлений
-       // Текст для пуш уведомления по умолчанию
+        // Текст для пуш уведомления по умолчанию
         buildConfigField "String", "urlPushStringsDefault", "\"https://drive.google.com/uc?export=download&id=1e8RvPSy-dZgqeXmibzj87tYvEF1UtuIt\""
 
-       // Текст для пуш уведомлений для локализации RU
-       //buildConfigField "String", "urlPushStringsRU", "\"https://drive.google.com/uc?export=download&id=1e8RvPSy-dZgqeXmibzj87tYvEF1UtuIt\""
+        // Текст для пуш уведомлений для локализации RU
+        //buildConfigField "String", "urlPushStringsRU", "\"https://drive.google.com/uc?export=download&id=1e8RvPSy-dZgqeXmibzj87tYvEF1UtuIt\""
 
         buildConfigField "java.util.HashMap<String, String>", "localizationPush", "new java.util.HashMap<String, String>() " +
                 "{{ put(\"Default\", \"https://drive.google.com/uc?export=download&id=1e8RvPSy-dZgqeXmibzj87tYvEF1UtuIt\"); }}"
@@ -207,7 +220,7 @@ android {
     /* end*/
 
     productFlavors {
-         opentadam { opentadamFlavor ->
+        opentadam { opentadamFlavor ->
             ext.fabricApiSecret = fabricApiSecret
             apply from: 'opentadam.gradle', to: opentadamFlavor
             resValue "string", "appName", applicationId
@@ -216,4 +229,3 @@ android {
 
     apply plugin: 'com.google.gms.google-services'
 }
-

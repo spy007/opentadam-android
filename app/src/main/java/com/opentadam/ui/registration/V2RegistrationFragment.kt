@@ -1,38 +1,29 @@
 package com.opentadam.ui.registration
 
-import android.content.Intent
 import android.graphics.Typeface
-import android.net.Uri
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
 import android.widget.*
 import butterknife.InjectView
 import butterknife.OnClick
-import com.opentadam.App
-import com.opentadam.Constants
 import com.opentadam.Injector
 import com.opentadam.R
-import com.opentadam.data.Countries
 import com.opentadam.data.DialogClient
-import com.opentadam.network.IGetApiResponse
-import com.opentadam.network.rest.Country
-import com.opentadam.network.rest.SubmitRequest
 import com.opentadam.ui.BaseFr
+import com.opentadam.ui.registration.mvp.presenter.V2RegistrationPresenter
+import com.opentadam.ui.registration.mvp.view.V2RegistrationView
 import com.opentadam.utils.CustomTypefaceSpan
-import kotlinx.android.synthetic.main.f_registration.*
-import java.util.*
 
 private const val IS_PROFIL = "isProfil"
 private const val IS_RESTART = "isRestart"
 
-class V2RegistrationFragment : BaseFr()  {
+class V2RegistrationFragment : BaseFr(), V2RegistrationView {
     @InjectView(R.id.login_country_select)
     @JvmField
     internal var loginCountrySelect: FrameLayout? = null
@@ -64,14 +55,23 @@ class V2RegistrationFragment : BaseFr()  {
     @JvmField
     internal var infoPolicyPrivacy: TextView? = null
 
-    private var phoneUser: String? = null
     private var maskedWatcher: MaskedWatcher? = null
-    private var mMask: String? = null
-    private var titleDef: String? = null
+
     private var v2KeyNumber: V2KeyNumber? = null
 
     private var isProfil = false
     private var isRestart = false
+
+    // TODO: figure out why Moxy doesn't inject presenter
+//    @InjectPresenter(type = PresenterType.GLOBAL)
+    var presenter: V2RegistrationPresenter = V2RegistrationPresenter()
+//
+//    @ProvidePresenterTag(presenterClass = V2RegistrationPresenter::class, type = PresenterType.GLOBAL)
+//    fun provideV2RegistrationPresenterTag(): String = "Hello"
+//
+//    @ProvidePresenter(type = PresenterType.GLOBAL)
+//    fun provideV2RegistrationPresenter() = V2RegistrationPresenter()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -100,12 +100,12 @@ class V2RegistrationFragment : BaseFr()  {
                 .findFragmentById(R.id.keyboard_number) as? V2KeyNumber
         v2KeyNumber?.initEdit(regEditPhone, true)
 
-        titleDef = getString(if (isProfil)
+        presenter.setTitleDef(getString(if (isProfil)
             R.string.navigation_phone
         else
-            R.string.registration_title)
+            R.string.registration_title))
 
-        v2Title?.setText(titleDef)
+        v2Title?.setText(presenter.getTitleDef())
 
         var textStart = getString(R.string.value_info_conf) + " "
         var textUrl = getString(R.string.sub_info_conf)
@@ -118,7 +118,7 @@ class V2RegistrationFragment : BaseFr()  {
         builder = initSpannableStringBuilder(textStart, textUrl, null)
         infoPolicyPrivacy?.setText(builder, TextView.BufferType.SPANNABLE)
 
-        initUI()
+        presenter.initUI()
     }
 
     private fun initSpannableStringBuilder(textStart: String?, textUrl: String?, textFin: String?): SpannableStringBuilder {
@@ -166,16 +166,14 @@ class V2RegistrationFragment : BaseFr()  {
         return builder
     }
 
-    private fun initUI() {
-        val countries = Countries.getRegCountries(getCountriesList())
+    override fun initUI(countryFlag: Int, countryPhonePrefix: String, hintMask: String) {
 
-        Countries.getCountryFlag(countries)?.let {
+        countryFlag?.let {
             loginFlagIcon?.setImageResource(it)
         }
 
-        val countryPhonePrefix = Countries.getCountryPhonePrefix(countries)
         regPrefixPhone?.text = countryPhonePrefix
-        mMask = Countries.getCountryPhoneMask(countries)
+
         // коррекция отступа от префикса:
 
         regEditPhone?.let {
@@ -189,85 +187,11 @@ class V2RegistrationFragment : BaseFr()  {
 
             it.setPadding(padding, 0, 0, 0)
 
-            val hintMask = mMask?.let {
-                it.substring(0, it.length - Countries.ADD_MASK.length)
-            }
-
             it.setHint(hintMask)
         }
 
-        mMask = mMask?.replace("X", "#")
-
-        mMask?.let {
+        presenter.replaceMask()?.let {
             setMaskedWatcher(it)
-        }
-    }
-
-    private fun openWebpage(url: String?) {
-
-        url.let {
-            val address = Uri.parse(it)
-            val openlinkIntent = Intent(Intent.ACTION_VIEW, address)
-
-            startActivity(Intent
-                    .createChooser(openlinkIntent, getString(R.string.select_app)))
-        }
-    }
-
-    private fun validatePhone() {
-
-        if (regEditPhone == null
-                || mMask == null
-                || regEditPhone?.getText() == null
-                || Countries.MASK_DEFAULT != mMask && regEditPhone!!.getText()!!.length < mMask!!.length - Countries.ADD_MASK.length) {
-            DialogClient.alertInfo(resources
-                    .getString(R.string.error_phone), aWork)
-            return
-        }
-
-        phoneUser = regEditPhone?.getText().toString().trim { it <= ' ' }
-
-        aWork.showWorkProgress()
-        val phone = regPrefixPhone?.text.toString() + phoneUser?.replace("\\D".toRegex(), "")
-        val value = phone.replace(" ", "")
-        val restConnect = Injector.getRC()
-
-        val submitRequest = SubmitRequest(value)
-        val rfererrClient = Injector.getSettingsStore().refererrClient
-        rfererrClient.let {
-            Log.e("test_referal", "sms файрбах rfererrClient = " + it)
-            submitRequest.referralCode = it
-        }
-
-        restConnect.sendPhoneToServers(submitRequest, IGetApiResponse { apiResponse ->
-            if (!isVisible)
-                return@IGetApiResponse
-
-            apiResponse.error?.let {
-                DialogClient.alertInfo(getString(R.string.freg_error_phone_servers), aWork)
-                return@IGetApiResponse
-            }
-
-            if (Constants.PATH_REG_PHONE == apiResponse.path) {
-                val ph = reg_prefix_phone.text.toString() + phoneUser?.replace("\\D".toRegex(), "")
-                val vl = ph.replace(" ", "")
-                val submitted = apiResponse.submitted
-                val id = submitted.id
-                aWork.showV2FSmsCode(reg_prefix_phone.text.toString() + phoneUser, id, vl, isProfil, isRestart)
-            }
-        })
-    }
-
-    private fun getCountriesList(): Array<String?> {
-        val countryList: List<Country> = Injector.getCountryList() ?: ArrayList()
-
-        val size = countryList.size
-
-        return arrayOfNulls<String>(size).also { lst ->
-            for (i in 0 until size) {
-                val country = countryList[i]
-                lst[i] = country.isoCode
-            }
         }
     }
 
@@ -280,6 +204,10 @@ class V2RegistrationFragment : BaseFr()  {
         }
     }
 
+    override fun setV2KeyNumberVisibility(visible: Boolean) {
+        v2KeyNumber?.setVisibilityKeyboord((if (visible) View.VISIBLE else View.GONE))
+    }
+
     override fun onDestroyView() {
         aWork.hideWorkProgress()
         aWork.window
@@ -288,54 +216,56 @@ class V2RegistrationFragment : BaseFr()  {
     }
 
     @OnClick(R.id.select_prefix)
-    fun onSelectCountryClicked() {
-        if (Injector.getCountryList() == null)
-            return
+    fun onSelectCountry() {
+        presenter.onSelectCountry()
+    }
 
+    override fun showCountryList(countryIsoList: Array<String?>) {
         v2KeyNumber?.setVisibilityKeyboord(View.GONE)
         loginCountriesList?.let {
             loginCountrySelect?.setVisibility(View.VISIBLE)
             it.removeAllViews()
             val layoutInflater = LayoutInflater.from(it.getContext())
 
-            for (countryAcronim in getCountriesList()) {
+            for (iso in countryIsoList) {
                 val countryItem = layoutInflater
                         .inflate(R.layout.i_login_country, it, false) as LinearLayout
                 val holder = CountryViewHolder(countryItem)
 
-                val countryFlag = Countries.getCountryFlag(countryAcronim)
+                presenter.getCountrlyFlag(iso).let {
+                    holder.iLoginCountryFlag.setImageResource(it)
+                }
 
-                if (countryFlag != null)
-                    holder.iLoginCountryFlag.setImageResource(countryFlag)
-
-                holder.iLoginCountryName.text = Countries.getCountryName(countryAcronim)
-                holder.iLoginCountryPrefix.text = Countries.getCountryPhonePrefix(countryAcronim)
-
+                holder.run {
+                    iLoginCountryName.text = presenter.getCountryName(iso)
+                    iLoginCountryPrefix.text = presenter.getCountryPhonePrefix(iso)
+                }
 
                 it.addView(countryItem)
 
                 countryItem.setOnClickListener {
-                    Injector.getSettingsStore().writeString("countries", countryAcronim)
+                    presenter.onCountryItemSelected(iso)
                     loginCountrySelect?.setVisibility(View.GONE)
                     loginCountriesList?.removeAllViews()
                     v2KeyNumber?.setVisibilityKeyboord(View.VISIBLE)
-                    initUI()
+                    presenter.initUI()
                 }
             }
         }
     }
 
+    override fun hideKeyboard() {
+        hideKeyboard(regEditPhone)
+    }
 
     @OnClick(R.id.sub_info_conf)
     fun subInfoConf() {
-        val urlUserAgreement = App.app.hashBC.URL_USER_AGREEMENT
-        openWebpage(urlUserAgreement)
+        presenter.onSelectUserAgreement()
     }
 
     @OnClick(R.id.info_conf_two_sub)
     fun infoConfTwoSub() {
-        val urlPolicyPrivacy = App.app.hashBC.URL_POLICY_PRIVACY
-        openWebpage(urlPolicyPrivacy)
+        presenter.onSelectPolicyPrivacy()
     }
 
     @OnClick(R.id.v2_bask)
@@ -343,7 +273,7 @@ class V2RegistrationFragment : BaseFr()  {
         contReg?.run {
             if (visibility == View.GONE) {
                 visibility = View.VISIBLE
-                v2Title?.setText(titleDef)
+                v2Title?.setText(presenter.getTitleDef())
             } else if (isProfil)
                 aWork.showFProfil()
             else
@@ -351,20 +281,40 @@ class V2RegistrationFragment : BaseFr()  {
         }
     }
 
-    override fun onBackPressed(): Boolean {
-        onv2Bask()
-        return true
-    }
-
     @OnClick(R.id.reg_send_phone)
     fun regSendPhone() {
-        hideKeyboard(regEditPhone)
-        validatePhone()
+        presenter.onSendPhone(regEditPhone?.text.toString(), regPrefixPhone?.text.toString(), isVisible)
     }
 
     @OnClick(R.id.reg_del_phone)
     fun onDel() {
         regEditPhone?.setText("")
+    }
+
+    override fun showAlertCheckNumbers() {
+        showAlert(R.string.error_phone)
+    }
+
+    override fun showAlertInvalidNumber() {
+        showAlert(R.string.freg_error_phone_servers)
+    }
+
+    override fun showProgress() {
+        aWork.showWorkProgress()
+    }
+
+    private fun showAlert(resMsgId: Int) {
+        DialogClient.alertInfo(resources
+                .getString(resMsgId), aWork)
+    }
+
+    override fun showPrefixSmsCode(regPrefixPhone: String, phoneUser: String, id: Long, value: String) {
+        aWork.showV2FSmsCode(regPrefixPhone + phoneUser, id, value, isProfil, isRestart)
+    }
+
+    override fun onBackPressed(): Boolean {
+        onv2Bask()
+        return true
     }
 
     companion object {
