@@ -6,9 +6,9 @@ manifestPlaceholders.fabricApiKey = "faea78f5d5196477239e5361b6dd2dda630099c0"
 manifestPlaceholders.appId = "com.opentadam.androidapp"
 ext.fabricApiSecret = "3ac99eac56969307e42233519795d1e3653eca9198e3a3f714213ece56cb4c61"
 
-buildConfigField "String", "HiveProfile", "\"38d159c1f6aabed1586344550e68824e1\""
+buildConfigField "String", "HiveProfile", "\"38d159c1f6aabed158691250e68824e1\""
 
-buildConfigField "String[]", "REST_SERVER", "new String[]{\"https://opentadam.com:443\"}"
+buildConfigField "String[]", "REST_SERVER", "new String[]{\"https://dev-mobile.tadam24.com\"}"
 buildConfigField "Double[]", "defaultLatLon", "new Double[]{24.991540, 33.370927}"
 buildConfigField "boolean", "isChangeColorIPTariffs", "false"
 buildConfigField "int", "limitNumberActiveOrders", "1"

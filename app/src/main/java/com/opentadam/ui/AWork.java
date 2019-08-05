@@ -60,10 +60,10 @@ import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
 import com.google.firebase.dynamiclinks.PendingDynamicLinkData;
 import com.google.gson.Gson;
 import com.opentadam.App;
-
+import com.opentadam.BuildConfig;
 import com.opentadam.Constants;
 import com.opentadam.Injector;
-
+import com.opentadam.R;
 import com.opentadam.bus.BusArayPingOrderInfo;
 import com.opentadam.bus.BusDisabledTarif;
 import com.opentadam.bus.BusEnabledStorageFotoPermission;
@@ -128,15 +128,13 @@ import com.opentadam.ui.order.V2FShortOrdersPrivate;
 import com.opentadam.ui.order.addaddress.FAddEditAdress;
 import com.opentadam.ui.qrCode.CreateQRCodeFragment;
 import com.opentadam.ui.qrCode.ScannerQRFragment;
-import com.opentadam.ui.registration.V2FRegistration;
 import com.opentadam.ui.registration.V2FSmsCode;
+import com.opentadam.ui.registration.V2RegistrationFragment;
 import com.opentadam.ui_payemnts_metods.FCardSettings;
 import com.opentadam.ui_payemnts_metods.V2FSetCashOrder;
 import com.opentadam.utils.UIOrder;
 import com.opentadam.utils.Utilites;
 import com.opentadam.view.FDialogCustom;
-import com.opentadam.BuildConfig;
-import com.opentadam.R;
 import com.squareup.otto.Subscribe;
 import com.yandex.metrica.YandexMetrica;
 import com.yandex.metrica.push.YandexMetricaPush;
@@ -1329,7 +1327,7 @@ public class AWork extends BaseActivity {
     }
 
     public void showV2FRegistration(boolean isProfil, boolean isRestart) {
-        showTopFragment(V2FRegistration.newInstance(isProfil, isRestart));
+        showTopFragment(V2RegistrationFragment.newInstance(isProfil, isRestart));
     }
 
     public void showFRouteCreaton() {
