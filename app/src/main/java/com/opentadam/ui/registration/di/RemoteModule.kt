@@ -2,6 +2,7 @@ package com.contactskotlin.data.di
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.opentadam.BuildConfig
 import com.opentadam.ui.registration.api.RemoteService
 import dagger.Module
 import dagger.Provides
@@ -27,7 +28,7 @@ class RemoteModule {
     @Singleton
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit =
             Retrofit.Builder()
-                    .baseUrl("https://api.androidhive.info/")
+                    .baseUrl(BuildConfig.REST_SERVER[0])
                     .addConverterFactory(GsonConverterFactory.create())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .client(okHttpClient)
@@ -39,11 +40,12 @@ class RemoteModule {
         addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
         addInterceptor { chain ->
             val original = chain.request()
+                    .newBuilder()
+                    .addHeader("Hive-Profile", BuildConfig.HiveProfile).build()
+
             val originalHttpUrl = original.url()
 
-            val url = originalHttpUrl.newBuilder()
-//                    .addQueryParameter("username", "stasvip")
-                    .build()
+            val url = originalHttpUrl.newBuilder().build()
 
             // Request customization: add request headers
             val requestBuilder = original.newBuilder()
