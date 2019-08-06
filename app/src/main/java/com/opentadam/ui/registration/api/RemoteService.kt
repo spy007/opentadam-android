@@ -2,12 +2,8 @@ package com.opentadam.ui.registration.api
 
 import com.opentadam.Constants
 import com.opentadam.network.rest.*
-import retrofit.http.Header
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface RemoteService {
     @POST(Constants.PATH_REG_PHONE)

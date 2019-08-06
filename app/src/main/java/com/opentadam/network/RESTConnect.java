@@ -1321,14 +1321,14 @@ public class RESTConnect {
         apiService.findConfirm(mId, mCodeUser).enqueue(new retrofit2.Callback<Confirmed>() {
             @Override
             public void onResponse(final retrofit2.Call<Confirmed> confirmed, final retrofit2.Response<Confirmed> response) {
-                ApiResponse apiResponse = new ApiResponse(Constants.PATH_REG_PHONE);
+                ApiResponse apiResponse = new ApiResponse(Constants.PATH_REG_CODE);
                 apiResponse.confirmed = response.body();
                 iGetApiResponse.getApiResponse(apiResponse);
             }
 
             @Override
             public void onFailure(final retrofit2.Call<Confirmed> call, final Throwable t) {
-                ApiResponse apiResponse = new ApiResponse(Constants.PATH_REG_PHONE);
+                ApiResponse apiResponse = new ApiResponse(Constants.PATH_REG_CODE);
                 apiResponse.error = t.getMessage();
                 iGetApiResponse.getApiResponse(apiResponse);
             }
