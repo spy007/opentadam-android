@@ -37,9 +37,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.opentadam.App;
-import com.opentadam.BuildConfig;
 import com.opentadam.Injector;
 import com.opentadam.R;
 import com.opentadam.data.ClientData;
@@ -56,7 +56,7 @@ import butterknife.ButterKnife;
 import static com.opentadam.Injector.getClientData;
 
 
-public abstract class BaseFr extends Fragment {
+public abstract class BaseFr extends MvpAppCompatFragment {
 
 
     @Override

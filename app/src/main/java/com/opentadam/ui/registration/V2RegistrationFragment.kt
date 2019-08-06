@@ -12,6 +12,7 @@ import android.view.WindowManager
 import android.widget.*
 import butterknife.InjectView
 import butterknife.OnClick
+import com.arellomobile.mvp.presenter.InjectPresenter
 import com.opentadam.Injector
 import com.opentadam.R
 import com.opentadam.data.DialogClient
@@ -62,16 +63,8 @@ class V2RegistrationFragment : BaseFr(), V2RegistrationView {
     private var isProfil = false
     private var isRestart = false
 
-    // TODO: figure out why Moxy doesn't inject presenter
-//    @InjectPresenter(type = PresenterType.GLOBAL)
-    var presenter: V2RegistrationPresenter = V2RegistrationPresenter()
-//
-//    @ProvidePresenterTag(presenterClass = V2RegistrationPresenter::class, type = PresenterType.GLOBAL)
-//    fun provideV2RegistrationPresenterTag(): String = "Hello"
-//
-//    @ProvidePresenter(type = PresenterType.GLOBAL)
-//    fun provideV2RegistrationPresenter() = V2RegistrationPresenter()
-
+    @InjectPresenter
+    lateinit var presenter: V2RegistrationPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -105,7 +98,7 @@ class V2RegistrationFragment : BaseFr(), V2RegistrationView {
         else
             R.string.registration_title))
 
-        v2Title?.setText(presenter.getTitleDef())
+        v2Title?.text =presenter.getTitleDef()
 
         var textStart = getString(R.string.value_info_conf) + " "
         var textUrl = getString(R.string.sub_info_conf)
@@ -168,9 +161,7 @@ class V2RegistrationFragment : BaseFr(), V2RegistrationView {
 
     override fun initUI(countryFlag: Int, countryPhonePrefix: String, hintMask: String) {
 
-        countryFlag?.let {
-            loginFlagIcon?.setImageResource(it)
-        }
+        loginFlagIcon?.setImageResource(countryFlag)
 
         regPrefixPhone?.text = countryPhonePrefix
 
@@ -187,7 +178,7 @@ class V2RegistrationFragment : BaseFr(), V2RegistrationView {
 
             it.setPadding(padding, 0, 0, 0)
 
-            it.setHint(hintMask)
+            it.hint = hintMask
         }
 
         presenter.replaceMask()?.let {
@@ -223,9 +214,9 @@ class V2RegistrationFragment : BaseFr(), V2RegistrationView {
     override fun showCountryList(countryIsoList: Array<String?>) {
         v2KeyNumber?.setVisibilityKeyboord(View.GONE)
         loginCountriesList?.let {
-            loginCountrySelect?.setVisibility(View.VISIBLE)
+            loginCountrySelect?.visibility = View.VISIBLE
             it.removeAllViews()
-            val layoutInflater = LayoutInflater.from(it.getContext())
+            val layoutInflater = LayoutInflater.from(it.context)
 
             for (iso in countryIsoList) {
                 val countryItem = layoutInflater
@@ -245,7 +236,7 @@ class V2RegistrationFragment : BaseFr(), V2RegistrationView {
 
                 countryItem.setOnClickListener {
                     presenter.onCountryItemSelected(iso)
-                    loginCountrySelect?.setVisibility(View.GONE)
+                    loginCountrySelect?.visibility =View.GONE
                     loginCountriesList?.removeAllViews()
                     v2KeyNumber?.setVisibilityKeyboord(View.VISIBLE)
                     presenter.initUI()

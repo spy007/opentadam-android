@@ -43,7 +43,6 @@ class V2RegistrationPresenter : MvpPresenter<V2RegistrationView>() {
             mask?.let {
                 val hintMask = it.substring(0, it.length - Countries.ADD_MASK.length)
                 viewState.initUI(getCountrlyFlag(iso), getCountryPhonePrefix(iso), hintMask)
-
             }
         }
     }
@@ -88,10 +87,13 @@ class V2RegistrationPresenter : MvpPresenter<V2RegistrationView>() {
     fun isPhoneNotCorrect(regPhone: String?, mask: String?) =
             (regPhone == null
                     || mask == null
-                    || Countries.MASK_DEFAULT != mask && regPhone.length < mask.length - Countries.ADD_MASK.length)
+                    || (Countries.MASK_DEFAULT != mask && regPhone.length < mask.length - Countries.ADD_MASK.length))
 
     private fun sendPhone(regPhone: String?, regPrefixPhone: String?, isFragmentVisible: Boolean) {
-        if (isPhoneNotCorrect(regPhone, mask) || regPrefixPhone == null || mask == null) {
+        if (isPhoneNotCorrect(regPhone, mask) || regPrefixPhone == null) {
+            viewState.showAlertCheckNumbers()
+            return
+        }
             viewState.showProgress()
 
             val phoneUser = regPhone?.trim { it <= ' ' }
@@ -120,10 +122,9 @@ class V2RegistrationPresenter : MvpPresenter<V2RegistrationView>() {
                     val vl = ph.replace(" ", "")
                     val submitted = apiResponse.submitted
                     val id = submitted.id
-                    viewState.showPrefixSmsCode(regPrefixPhone!!, phoneUser!!, id, vl)
+                    viewState.showPrefixSmsCode(regPrefixPhone, phoneUser!!, id, vl)
                 }
             })
-        }
     }
 
     private fun onPhoneFound() {
