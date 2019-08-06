@@ -127,10 +127,6 @@ class V2RegistrationPresenter : MvpPresenter<V2RegistrationView>() {
             })
     }
 
-    private fun onPhoneFound() {
-
-    }
-
     fun onSelectCountry() {
 
         if (Injector.getCountryList() == null)

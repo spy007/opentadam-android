@@ -66,6 +66,7 @@ import com.opentadam.ui.frends.referal.Result;
 import com.opentadam.ui.frends.referal.ResultDayStat;
 import com.opentadam.ui.frends.referal.Transaction;
 import com.opentadam.ui.registration.api.RemoteService;
+import com.opentadam.ui.registration.room.RoomDataSource;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Protocol;
 
@@ -119,6 +120,9 @@ public class RESTConnect {
 
     @Inject
     RemoteService apiService;
+
+    @Inject
+    RoomDataSource roomDataSource;
 
     public BaseHiveApi getRESTService(LatLng latLng) {
 
