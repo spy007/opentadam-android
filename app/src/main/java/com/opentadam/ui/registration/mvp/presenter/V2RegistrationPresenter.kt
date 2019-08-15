@@ -5,21 +5,41 @@ import android.net.Uri
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import com.opentadam.App
-import com.opentadam.Constants
 import com.opentadam.Injector
 import com.opentadam.R
 import com.opentadam.data.Countries
-import com.opentadam.network.IGetApiResponse
 import com.opentadam.network.rest.Country
 import com.opentadam.network.rest.SubmitRequest
+import com.opentadam.network.rest.Submitted
+import com.opentadam.ui.registration.api.RemoteService
 import com.opentadam.ui.registration.mvp.view.V2RegistrationView
+import com.opentadam.ui.registration.room.ClientEntity
+import com.opentadam.ui.registration.room.RoomDataSource
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.Disposable
+import io.reactivex.schedulers.Schedulers
+import timber.log.Timber
 import java.util.*
+import javax.inject.Inject
 
 @InjectViewState
-class V2RegistrationPresenter : MvpPresenter<V2RegistrationView>() {
+class V2RegistrationPresenter : MvpPresenter<V2RegistrationView> {
+
+    @Inject
+    lateinit var apiService: RemoteService
+
+    @Inject
+    lateinit var db: RoomDataSource
 
     private lateinit var titleDef: String
+
     private var mask: String? = null
+
+    private lateinit var disposable: Disposable
+
+    constructor() {
+        App.appComponent.inject(this)
+    }
 
     // TODO: pass application context via Dagger
     fun onSelectUserAgreement() {
@@ -33,12 +53,10 @@ class V2RegistrationPresenter : MvpPresenter<V2RegistrationView>() {
     fun onSendPhone(regPhone: String?, regPrefixPhone: String?, isFragmentVisible: Boolean) {
         viewState.hideKeyboard()
         sendPhone(regPhone, regPrefixPhone, isFragmentVisible)
-
     }
 
     fun initUI() {
-
-        Countries.getRegCountries(getCountriesIso()).let {iso ->
+        Countries.getRegCountries(getCountriesIso()).let { iso ->
             mask = Countries.getCountryPhoneMask(iso)
             mask?.let {
                 val hintMask = it.substring(0, it.length - Countries.ADD_MASK.length)
@@ -66,10 +84,10 @@ class V2RegistrationPresenter : MvpPresenter<V2RegistrationView>() {
         val size = countryList.size
 
         val lst = arrayOfNulls<String>(size)
-            for (i in 0 until size) {
-                val country = countryList[i]
-                lst[i] = country.isoCode
-            }
+        for (i in 0 until size) {
+            val country = countryList[i]
+            lst[i] = country.isoCode
+        }
 
         return lst
 
@@ -80,6 +98,7 @@ class V2RegistrationPresenter : MvpPresenter<V2RegistrationView>() {
     fun getCountryName(iso: String?) = Countries.getCountryName(iso)
 
     fun getCountryPhonePrefix(iso: String?) = Countries.getCountryPhonePrefix(iso)
+
     fun onCountryItemSelected(iso: String?) {
         Injector.getSettingsStore().writeString("countries", iso)
     }
@@ -94,37 +113,56 @@ class V2RegistrationPresenter : MvpPresenter<V2RegistrationView>() {
             viewState.showAlertCheckNumbers()
             return
         }
-            viewState.showProgress()
+        viewState.showProgress()
 
-            val phoneUser = regPhone?.trim { it <= ' ' }
+        val phoneUser: String = regPhone?.trim { it <= ' ' }!!
+        var phone = regPrefixPhone + phoneUser?.replace("\\D".toRegex(), "")
+        phone = phone.replace(" ", "")
 
-            val phone = regPrefixPhone + phoneUser?.replace("\\D".toRegex(), "")
-            val value = phone.replace(" ", "")
-            val restConnect = Injector.getRC()
+        val submitRequest = SubmitRequest(phone)
 
-            val submitRequest = SubmitRequest(value)
-            val rfererrClient = Injector.getSettingsStore().refererrClient
-            rfererrClient.let {
-                submitRequest.referralCode = it
+        Injector.getSettingsStore().refererrClient?.let {
+            submitRequest.referralCode = it
+        }
+
+        disposable = apiService.findPhone(submitRequest)
+                .subscribeOn(Schedulers.io())
+                .doOnSuccess { submitted -> onSubmittedSuccess(submitted) }
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ submitted -> onSubmitted(submitted, regPrefixPhone, phoneUser, phone) },
+                        { error -> onError(error) })
+    }
+
+    private fun onSubmittedSuccess(submitted: Submitted) =
+            submitted?.apply {
+                db.clientDao().run {
+                    insertClient(ClientEntity.create(clientId = id))
+                    // just for test
+                    getClients().subscribe { clients -> Timber.i("kiv007 clients" + clients.get(0).clientId) }
+                }
             }
 
-            restConnect.sendPhoneToServers(submitRequest, IGetApiResponse { apiResponse ->
-                if (!isFragmentVisible)
-                    return@IGetApiResponse
+    private fun onSubmitted(submitted: Submitted, regPrefixPhone: String, phoneUser: String, phone: String) {
+        submitted.id?.let {
+            viewState.showPrefixSmsCode(regPrefixPhone, phoneUser, it, phone)
 
-                apiResponse.error?.let {
-                    viewState.showAlertInvalidNumber()
-                    return@IGetApiResponse
-                }
+            Timber.i("kiv007 submitted id after sending phone: $it")
+        }
+    }
 
-                if (Constants.PATH_REG_PHONE == apiResponse.path) {
-                    val ph = regPrefixPhone + phoneUser?.replace("\\D".toRegex(), "")
-                    val vl = ph.replace(" ", "")
-                    val submitted = apiResponse.submitted
-                    val id = submitted.id
-                    viewState.showPrefixSmsCode(regPrefixPhone, phoneUser!!, id, vl)
-                }
-            })
+    private fun onError(error: Throwable) {
+        error.message?.let {
+            viewState.showAlertInvalidNumber()
+            Timber.i("kiv007 ERROR  after sending phone $it")
+        }
+    }
+
+    fun onDestroyFragment() {
+        disposable?.run {
+            if (!isDisposed) {
+                dispose()
+            }
+        }
     }
 
     fun onSelectCountry() {

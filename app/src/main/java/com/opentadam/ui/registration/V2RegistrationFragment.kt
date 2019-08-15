@@ -9,10 +9,12 @@ import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
-import android.widget.*
-import butterknife.InjectView
+import android.widget.LinearLayout
+import android.widget.TextView
 import butterknife.OnClick
 import com.arellomobile.mvp.presenter.InjectPresenter
+import com.opentadam.Constants.IS_PROFIL
+import com.opentadam.Constants.IS_RESTART
 import com.opentadam.Injector
 import com.opentadam.R
 import com.opentadam.data.DialogClient
@@ -20,42 +22,9 @@ import com.opentadam.ui.BaseFr
 import com.opentadam.ui.registration.mvp.presenter.V2RegistrationPresenter
 import com.opentadam.ui.registration.mvp.view.V2RegistrationView
 import com.opentadam.utils.CustomTypefaceSpan
-
-private const val IS_PROFIL = "isProfil"
-private const val IS_RESTART = "isRestart"
+import kotlinx.android.synthetic.main.f_registration.*
 
 class V2RegistrationFragment : BaseFr(), V2RegistrationView {
-    @InjectView(R.id.login_country_select)
-    @JvmField
-    internal var loginCountrySelect: FrameLayout? = null
-    @InjectView(R.id.reg_prefix_phone)
-    @JvmField
-    internal var regPrefixPhone: TextView? = null
-    @InjectView(R.id.reg_edit_phone)
-    @JvmField
-    internal var regEditPhone: EditText? = null
-    @InjectView(R.id.login_countries_list)
-    @JvmField
-    internal var loginCountriesList: LinearLayout? = null
-    @InjectView(R.id.v2_title)
-    @JvmField
-    internal var v2Title: TextView? = null
-    @InjectView(R.id.cont_reg)
-    @JvmField
-    internal var contReg: LinearLayout? = null
-    @InjectView(R.id.login_flag_icon)
-    @JvmField
-    internal var loginFlagIcon: ImageView? = null
-    @InjectView(R.id.login_flag_select)
-    @JvmField
-    internal var loginFlagSelect: View? = null
-    @InjectView(R.id.sub_info_conf)
-    @JvmField
-    internal var infoAgreement: TextView? = null
-    @InjectView(R.id.info_conf_two_sub)
-    @JvmField
-    internal var infoPolicyPrivacy: TextView? = null
-
     private var maskedWatcher: MaskedWatcher? = null
 
     private var v2KeyNumber: V2KeyNumber? = null
@@ -85,31 +54,31 @@ class V2RegistrationFragment : BaseFr(), V2RegistrationView {
 
     private fun bodyUI() {
         (if (Injector.getCountryList() == null) View.INVISIBLE else View.VISIBLE).let {
-            loginFlagIcon?.visibility = it
-            loginFlagSelect?.visibility = it
+            login_flag_icon.visibility = it
+            login_flag_select.visibility = it
         }
 
         v2KeyNumber = childFragmentManager
                 .findFragmentById(R.id.keyboard_number) as? V2KeyNumber
-        v2KeyNumber?.initEdit(regEditPhone, true)
+        v2KeyNumber?.initEdit(reg_edit_phone, true)
 
         presenter.setTitleDef(getString(if (isProfil)
             R.string.navigation_phone
         else
             R.string.registration_title))
 
-        v2Title?.text =presenter.getTitleDef()
+        v2_title.text = presenter.getTitleDef()
 
         var textStart = getString(R.string.value_info_conf) + " "
         var textUrl = getString(R.string.sub_info_conf)
         val textFin = " " + getString(R.string.sub_info_conf_dop)
         var builder = initSpannableStringBuilder(textStart, textUrl, textFin)
-        infoAgreement?.setText(builder, TextView.BufferType.SPANNABLE)
+        sub_info_conf.setText(builder, TextView.BufferType.SPANNABLE)
 
         textStart = getString(R.string.freg_sub_policy_info) + " "
         textUrl = getString(R.string.value_info_conf_two_sub)
         builder = initSpannableStringBuilder(textStart, textUrl, null)
-        infoPolicyPrivacy?.setText(builder, TextView.BufferType.SPANNABLE)
+        info_conf_two_sub.setText(builder, TextView.BufferType.SPANNABLE)
 
         presenter.initUI()
     }
@@ -161,13 +130,13 @@ class V2RegistrationFragment : BaseFr(), V2RegistrationView {
 
     override fun initUI(countryFlag: Int, countryPhonePrefix: String, hintMask: String) {
 
-        loginFlagIcon?.setImageResource(countryFlag)
+        login_flag_icon.setImageResource(countryFlag)
 
-        regPrefixPhone?.text = countryPhonePrefix
+        reg_prefix_phone.setText(countryPhonePrefix)
 
         // коррекция отступа от префикса:
 
-        regEditPhone?.let {
+        reg_edit_phone.let {
             val padding = when (countryPhonePrefix.length) {
                 1 -> getPX(76)
                 2 -> getPX(86)
@@ -187,7 +156,7 @@ class V2RegistrationFragment : BaseFr(), V2RegistrationView {
     }
 
     private fun setMaskedWatcher(mask: String) {
-        regEditPhone?.let {
+        reg_edit_phone.let {
             if (maskedWatcher != null)
                 it.removeTextChangedListener(maskedWatcher)
             maskedWatcher = MaskedWatcher(mask)
@@ -213,8 +182,8 @@ class V2RegistrationFragment : BaseFr(), V2RegistrationView {
 
     override fun showCountryList(countryIsoList: Array<String?>) {
         v2KeyNumber?.setVisibilityKeyboord(View.GONE)
-        loginCountriesList?.let {
-            loginCountrySelect?.visibility = View.VISIBLE
+        login_countries_list.let {
+            it.visibility = View.VISIBLE
             it.removeAllViews()
             val layoutInflater = LayoutInflater.from(it.context)
 
@@ -236,8 +205,8 @@ class V2RegistrationFragment : BaseFr(), V2RegistrationView {
 
                 countryItem.setOnClickListener {
                     presenter.onCountryItemSelected(iso)
-                    loginCountrySelect?.visibility =View.GONE
-                    loginCountriesList?.removeAllViews()
+                    login_countries_list.visibility =View.GONE
+                    login_countries_list.removeAllViews()
                     v2KeyNumber?.setVisibilityKeyboord(View.VISIBLE)
                     presenter.initUI()
                 }
@@ -246,7 +215,7 @@ class V2RegistrationFragment : BaseFr(), V2RegistrationView {
     }
 
     override fun hideKeyboard() {
-        hideKeyboard(regEditPhone)
+        hideKeyboard(reg_edit_phone)
     }
 
     @OnClick(R.id.sub_info_conf)
@@ -261,10 +230,10 @@ class V2RegistrationFragment : BaseFr(), V2RegistrationView {
 
     @OnClick(R.id.v2_bask)
     fun onv2Bask() {
-        contReg?.run {
+        cont_reg.run {
             if (visibility == View.GONE) {
                 visibility = View.VISIBLE
-                v2Title?.setText(presenter.getTitleDef())
+                v2_title.setText(presenter.getTitleDef())
             } else if (isProfil)
                 aWork.showFProfil()
             else
@@ -274,12 +243,12 @@ class V2RegistrationFragment : BaseFr(), V2RegistrationView {
 
     @OnClick(R.id.reg_send_phone)
     fun regSendPhone() {
-        presenter.onSendPhone(regEditPhone?.text.toString(), regPrefixPhone?.text.toString(), isVisible)
+        presenter.onSendPhone(reg_edit_phone.text.toString(), reg_prefix_phone.text.toString(), isVisible)
     }
 
     @OnClick(R.id.reg_del_phone)
     fun onDel() {
-        regEditPhone?.setText("")
+        reg_edit_phone.setText("")
     }
 
     override fun showAlertCheckNumbers() {
@@ -306,6 +275,12 @@ class V2RegistrationFragment : BaseFr(), V2RegistrationView {
     override fun onBackPressed(): Boolean {
         onv2Bask()
         return true
+    }
+
+    override fun onDestroy() {
+        presenter.onDestroyFragment()
+
+        super.onDestroy()
     }
 
     companion object {

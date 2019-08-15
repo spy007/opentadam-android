@@ -19,4 +19,6 @@ interface V2RegistrationView : MvpView {
     fun showPrefixSmsCode(regPrefixPhone: String, phoneUser: String, id: Long, value: String)
 
     fun setV2KeyNumberVisibility(visible: Boolean)
+
+    fun onDestroyView()
 }
