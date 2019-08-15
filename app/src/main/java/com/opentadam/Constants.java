@@ -67,6 +67,9 @@ public class Constants {
     public static final int TYPE_NAME = 1;
     public static final int TYPE_MAIL = 2;
 
+    public static final String IS_PROFIL = "isProfil";
+    public static final String IS_RESTART = "isRestart";
+
     //  константы запросов
 
     public static final String PATH_FIND_DISPATCHER_CALL = "/api/client/mobile/1.0/dispatcher-call";

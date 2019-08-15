@@ -65,8 +65,6 @@ import com.opentadam.ui.ErrorCodeServers;
 import com.opentadam.ui.frends.referal.Result;
 import com.opentadam.ui.frends.referal.ResultDayStat;
 import com.opentadam.ui.frends.referal.Transaction;
-import com.opentadam.ui.registration.api.RemoteService;
-import com.opentadam.ui.registration.room.RoomDataSource;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Protocol;
 
@@ -79,7 +77,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-import javax.inject.Inject;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
@@ -115,14 +112,7 @@ public class RESTConnect {
         this.mMyGoogleLocation = mMyGoogleLocation;
         this.restServer = restServer;
 
-        App.appComponent.inject(this);
     }
-
-    @Inject
-    RemoteService apiService;
-
-    @Inject
-    RoomDataSource roomDataSource;
 
     public BaseHiveApi getRESTService(LatLng latLng) {
 
@@ -990,18 +980,20 @@ public class RESTConnect {
             return;
         }
 
-        apiService.findToken(head.get("Date"), head.get("Authentication"),
-                new FsmInfo(token)).enqueue(new retrofit2.Callback<EmptyObject>() {
-            @Override
-            public void onResponse(final retrofit2.Call<EmptyObject> confirmed, final retrofit2.Response<EmptyObject> response) {
-                getSettingsStore().writeString(Constants.REG_TOKEN_CLIENT, token);
-            }
+        BaseHiveApi restService = getRESTService(null);
+        if (restService != null)
+            restService.findToken(head.get("Date"), head.get("Authentication"),
+                    new FsmInfo(token), new Callback<EmptyObject>() {
+                        @Override
+                        public void success(EmptyObject emptyObject, Response response) {
+                            getSettingsStore().writeString(Constants.REG_TOKEN_CLIENT, token);
+                        }
 
-            @Override
-            public void onFailure(final retrofit2.Call<EmptyObject> call, final Throwable t) {
+                        @Override
+                        public void failure(RetrofitError error) {
 
-            }
-        });
+                        }
+                    });
     }
 
 
@@ -1208,34 +1200,46 @@ public class RESTConnect {
     }
 
     public void sendPhoneToServers(final SubmitRequest submitRequest, final IGetApiResponse iGetApiResponse) {
-        apiService.findPhone(submitRequest).enqueue(new retrofit2.Callback<Submitted>() {
-            @Override
-            public void onResponse(final retrofit2.Call<Submitted> call, final retrofit2.Response<Submitted> response) {
-                ApiResponse apiResponse = new ApiResponse(Constants.PATH_REG_PHONE);
-                apiResponse.submitted = response.body();
-                iGetApiResponse.getApiResponse(apiResponse);
-            }
+        BaseHiveApi restService = getRESTService(null);
+        if (restService != null)
+            restService.findPhone(submitRequest, new Callback<Submitted>() {
+                @Override
+                public void success(Submitted submitted, Response response) {
+                    ApiResponse apiResponse = new ApiResponse(Constants.PATH_REG_PHONE);
+                    apiResponse.submitted = submitted;
+                    iGetApiResponse.getApiResponse(apiResponse);
+                }
 
-            @Override
-            public void onFailure(final retrofit2.Call<Submitted> call, final Throwable t) {
-                ApiResponse apiResponse = new ApiResponse(Constants.PATH_REG_PHONE);
-                apiResponse.error = t.getMessage();
-                iGetApiResponse.getApiResponse(apiResponse);
-            }
-        });
+                @Override
+                public void failure(RetrofitError error) {
+
+                    UtilitesErrorIGetApiResponseObject utilitesErrorIGetApiResponseObject = UtilitesErrorIGetApiResponseObject
+                            .newInstance(iGetApiResponse, Constants.PATH_REG_PHONE)
+                            .setSubmitRequest(submitRequest);
+
+                    iGetApiResponse
+                            .getApiResponse(getErrprRest(Constants.PATH_REG_PHONE
+                                    , error
+                                    , utilitesErrorIGetApiResponseObject));
+                }
+            });
 
     }
 
     public void replaceCode(long mId, String type) {
-        apiService.reSubmit(mId, type).enqueue(new retrofit2.Callback<EmptyObject>() {
-            @Override
-            public void onResponse(final retrofit2.Call<EmptyObject> call, final retrofit2.Response<EmptyObject> response) {
-            }
+        BaseHiveApi restService = getRESTService(null);
+        if (restService != null)
+            restService.reSubmit(mId, type, new Callback<EmptyObject>() {
+                @Override
+                public void success(EmptyObject emptyObject, Response response) {
 
-            @Override
-            public void onFailure(final retrofit2.Call<EmptyObject> call, final Throwable t) {
-            }
-        });
+                }
+
+                @Override
+                public void failure(RetrofitError error) {
+
+                }
+            });
     }
 
     public void sendCallServers(final long idRoute, final IGetApiResponse iGetApiResponse) {
@@ -1322,21 +1326,30 @@ public class RESTConnect {
     }
 
     public void sendToServers(final long mId, final String mCodeUser, final IGetApiResponse iGetApiResponse) {
-        apiService.findConfirm(mId, mCodeUser).enqueue(new retrofit2.Callback<Confirmed>() {
-            @Override
-            public void onResponse(final retrofit2.Call<Confirmed> confirmed, final retrofit2.Response<Confirmed> response) {
-                ApiResponse apiResponse = new ApiResponse(Constants.PATH_REG_CODE);
-                apiResponse.confirmed = response.body();
-                iGetApiResponse.getApiResponse(apiResponse);
-            }
+        BaseHiveApi restService = getRESTService(null);
+        if (restService != null)
+            restService.findConfirm(mId, mCodeUser, new Callback<Confirmed>() {
+                @Override
+                public void success(Confirmed confirmed, Response response) {
+                    ApiResponse apiResponse = new ApiResponse(Constants.PATH_REG_CODE);
+                    apiResponse.confirmed = confirmed;
+                    iGetApiResponse.getApiResponse(apiResponse);
+                }
 
-            @Override
-            public void onFailure(final retrofit2.Call<Confirmed> call, final Throwable t) {
-                ApiResponse apiResponse = new ApiResponse(Constants.PATH_REG_CODE);
-                apiResponse.error = t.getMessage();
-                iGetApiResponse.getApiResponse(apiResponse);
-            }
-        });
+                @Override
+                public void failure(RetrofitError error) {
+                    UtilitesErrorIGetApiResponseObject utilitesErrorIGetApiResponseObject = UtilitesErrorIGetApiResponseObject
+                            .newInstance(iGetApiResponse, Constants.PATH_REG_CODE)
+                            .setCodeUser(mCodeUser)
+                            .setId(mId);
+
+                    iGetApiResponse
+                            .getApiResponse(getErrprRest(Constants.PATH_REG_CODE
+                                    , error
+                                    , utilitesErrorIGetApiResponseObject));
+
+                }
+            });
     }
 
     public void deleteRoute(final long idRoute, final IGetApiResponse iGetApiResponse) {

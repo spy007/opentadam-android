@@ -5,10 +5,12 @@ import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.content.Context
 
-@Database(entities = arrayOf(ClientEntity::class), version = 1)
+@Database(entities = arrayOf(ClientEntity::class, ConfirmEntity::class), version = 1)
 abstract class RoomDataSource : RoomDatabase() {
 
     abstract fun clientDao(): ClientDao
+
+    abstract fun confirmDao(): ConfirmDao
 
     companion object {
         fun buildDatabase(context: Context) =

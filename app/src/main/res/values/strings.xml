@@ -373,4 +373,7 @@
     <string name="error_get_data_servers">Невозможно получить данные с сервера</string>
     <string name="update_app_title">Пора обновить приложение</string>
     <string name="update_app_text">Текущая версия приложения больше не поддерживается. Обновите приложение и мы вернемся к работе.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

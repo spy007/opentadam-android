@@ -36,7 +36,7 @@ import java.util.Map;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
-class HiveHmacSigner {
+public class HiveHmacSigner {
 
     private static final Charset UTF8 = Charset.forName("UTF-8");
     private static final String HMAC_SHA256_KEYSPEC = "HmacSHA256";

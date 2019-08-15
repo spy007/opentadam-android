@@ -128,8 +128,8 @@ import com.opentadam.ui.order.V2FShortOrdersPrivate;
 import com.opentadam.ui.order.addaddress.FAddEditAdress;
 import com.opentadam.ui.qrCode.CreateQRCodeFragment;
 import com.opentadam.ui.qrCode.ScannerQRFragment;
-import com.opentadam.ui.registration.V2FSmsCode;
 import com.opentadam.ui.registration.V2RegistrationFragment;
+import com.opentadam.ui.registration.V2SmsCodeFragment;
 import com.opentadam.ui_payemnts_metods.FCardSettings;
 import com.opentadam.ui_payemnts_metods.V2FSetCashOrder;
 import com.opentadam.utils.UIOrder;
@@ -1335,7 +1335,7 @@ public class AWork extends BaseActivity {
     }
 
     public void showV2FSmsCode(String phoneUser, long id, String value, boolean isProfil, boolean isRestart) {
-        showTopFragment(V2FSmsCode.newInstance(phoneUser, id, value, isProfil, isRestart));
+        showTopFragment(V2SmsCodeFragment.newInstance(phoneUser, id, value, isProfil, isRestart));
     }
 
     @Override

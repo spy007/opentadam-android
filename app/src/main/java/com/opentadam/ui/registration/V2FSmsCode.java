@@ -246,7 +246,7 @@ public class V2FSmsCode extends BaseFr {
         }, 1000, 1000);
     }
 
-    private void refresh() {
+    void refresh() {
         if (isSendToServersSMS || isSendToServersCALL) {
             periodBlockSMS--;
             periodBlockCALL--;
